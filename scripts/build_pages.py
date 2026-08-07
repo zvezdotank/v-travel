@@ -38,7 +38,7 @@ DESTS = [
  "slug": "turciya",
  "name": "Турция",
  "to": "в Турцию",
- "image": "dest-turkey.jpg",
+ "image": "dest-turkey.webp",
  "price": "520",
  "flight": "Прямой рейс Ташкент — Анталия занимает около 5,5 часов.",
  "lead": "Самое простое первое море: прямые рейсы, «всё включено» как норма, "
@@ -63,9 +63,9 @@ DESTS = [
    ("Октябрь", "+26 / +24", "Купаться ещё можно, цены падают заметно"),
  ],
  "photos": {
-   "after_resorts": ("turciya-buhta.jpg", "Средиземноморское побережье: бирюзовые бухты и сосновые склоны, спускающиеся прямо к воде"),
-   "in_program": ("turciya-kappadokiya.jpg", "Рассвет над Каппадокией — четвёртый день программы"),
-   "in_faq": ("turciya-stambul.jpg", "Босфор на закате: паром идёт мимо силуэтов минаретов"),
+   "after_resorts": ("turciya-buhta.webp", "Средиземноморское побережье: бирюзовые бухты и сосновые склоны, спускающиеся прямо к воде"),
+   "in_program": ("turciya-kappadokiya.webp", "Рассвет над Каппадокией — четвёртый день программы"),
+   "in_faq": ("turciya-stambul.webp", "Босфор на закате: паром идёт мимо силуэтов минаретов"),
  },
  "program": {
    "title": "Стамбул и Каппадокия",
@@ -99,7 +99,7 @@ DESTS = [
  "slug": "egipet",
  "name": "Египет",
  "to": "в Египет",
- "image": "dest-egypt.jpg",
+ "image": "dest-egypt.webp",
  "price": "590",
  "flight": "Перелёт из Ташкента занимает около 6 часов прямым рейсом или с одной стыковкой.",
  "lead": "Круглогодичное море и лучший в регионе подводный мир. Риф здесь начинается "
@@ -121,9 +121,9 @@ DESTS = [
    ("Сентябрь — ноябрь", "+33 / +27", "Лучшее время: море максимально тёплое, жара спадает"),
  ],
  "photos": {
-   "after_resorts": ("egipet-rif.jpg", "Красное море: риф начинается в нескольких метрах от берега"),
-   "in_program": ("egipet-piramidy.jpg", "Пирамиды Гизы — третий день программы"),
-   "in_faq": ("egipet-karnak.jpg", "Карнакский храм в Луксоре — пятый день программы"),
+   "after_resorts": ("egipet-rif.webp", "Красное море: риф начинается в нескольких метрах от берега"),
+   "in_program": ("egipet-piramidy.webp", "Пирамиды Гизы — третий день программы"),
+   "in_faq": ("egipet-karnak.webp", "Карнакский храм в Луксоре — пятый день программы"),
  },
  "program": {
    "title": "Море, пирамиды и риф",
@@ -155,7 +155,7 @@ DESTS = [
  "slug": "tailand",
  "name": "Таиланд",
  "to": "в Таиланд",
- "image": "dest-thailand.jpg",
+ "image": "dest-thailand.webp",
  "price": "790",
  "flight": "Перелёт с одной стыковкой занимает от 9 до 12 часов в зависимости от маршрута.",
  "lead": "Море, острова и еда, ради которой стоит лететь отдельно. Летят на подольше — "
@@ -176,9 +176,9 @@ DESTS = [
    ("Июль — октябрь", "+31 / +29", "Сезон дождей на Пхукете и Краби. На Самуи в это время суше"),
  ],
  "photos": {
-   "after_resorts": ("tailand-mayya.jpg", "Бухта Майя Бэй на островах Пхи-Пхи — пятый день программы"),
-   "in_program": ("tailand-dvorec.jpg", "Большой королевский дворец в Бангкоке — второй день программы"),
-   "in_faq": ("tailand-reka.jpg", "Чаопхрая вечером: огни города на воде"),
+   "after_resorts": ("tailand-mayya.webp", "Бухта Майя Бэй на островах Пхи-Пхи — пятый день программы"),
+   "in_program": ("tailand-dvorec.webp", "Большой королевский дворец в Бангкоке — второй день программы"),
+   "in_faq": ("tailand-reka.webp", "Чаопхрая вечером: огни города на воде"),
  },
  "program": {
    "title": "Бангкок и море",
@@ -214,7 +214,7 @@ DESTS = [
  "slug": "vietnam",
  "name": "Вьетнам",
  "to": "во Вьетнам",
- "image": "dest-vietnam.jpg",
+ "image": "dest-vietnam.webp",
  "price": "720",
  "flight": "Перелёт с одной стыковкой занимает от 9 до 11 часов.",
  "lead": "Дешевле Таиланда при сопоставимом море, а еда и природа — отдельная причина "
@@ -234,9 +234,9 @@ DESTS = [
    ("Ноябрь — апрель", "+30 / +28", "Сухой сезон на Фукуоке. Лучшее время для острова"),
  ],
  "photos": {
-   "after_resorts": ("vietnam-halong.jpg", "Бухта Халонг: джонка среди известняковых скал — третий день программы"),
-   "in_program": ("vietnam-most.jpg", "Золотой мост в Бана Хиллс — четвёртый день программы"),
-   "in_faq": ("vietnam-hoyan.jpg", "Хойан вечером, когда зажигают шёлковые фонарики"),
+   "after_resorts": ("vietnam-halong.webp", "Бухта Халонг: джонка среди известняковых скал — третий день программы"),
+   "in_program": ("vietnam-most.webp", "Золотой мост в Бана Хиллс — четвёртый день программы"),
+   "in_faq": ("vietnam-hoyan.webp", "Хойан вечером, когда зажигают шёлковые фонарики"),
  },
  "program": {
    "title": "Гранд-тур по Вьетнаму",
@@ -494,9 +494,10 @@ def build_page(d, all_dests):
 <meta property="og:image" content="{SITE}{img}">
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23061c2e'/%3E%3Cpath d='M16 20l16 26 16-26' fill='none' stroke='%2338d0ff' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" href="/assets/fonts/unbounded-900.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/manrope-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{img}" as="image" fetchpriority="high">
+<link rel="stylesheet" href="/css/fonts.css">
 <link rel="stylesheet" href="/css/styles.css">
 <link rel="stylesheet" href="/css/pages.css">
 <script>document.documentElement.classList.add('js');</script>

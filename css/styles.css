@@ -503,7 +503,7 @@ button { font: inherit; }
   padding-right: 42px;
 }
 .field option { background: var(--deep); color: var(--ink); }
-.field input::placeholder { color: rgba(203, 224, 238, .38); font-weight: 500; }
+.field input::placeholder { color: rgba(203, 224, 238, .38); font-weight: 400; }
 .field input:focus, .field select:focus { outline: none; border-color: var(--cyan); background: rgba(56, 208, 255, .08); }
 .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .pick__form .btn { margin-top: 8px; }

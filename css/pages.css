@@ -70,7 +70,7 @@
   gap: 24px; flex-wrap: wrap;
 }
 .inline-cta--wide { border-style: solid; border-color: rgba(56,208,255,.28); }
-.inline-cta__title { font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 18px; letter-spacing: -.02em; }
+.inline-cta__title { font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: 18px; letter-spacing: -.02em; }
 .inline-cta__text { margin-top: 8px; font-size: 15px; color: var(--ink-soft); max-width: 62ch; }
 .inline-cta__actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
@@ -111,7 +111,7 @@
 .season tbody tr { border-bottom: 1px solid rgba(148,205,235,.1); }
 .season tbody tr:last-child { border-bottom: 0; }
 .season tbody th { font-weight: 800; font-size: 15.5px; white-space: nowrap; }
-.season__temp { font-family: 'Unbounded', sans-serif; font-size: 14px; color: var(--foam); white-space: nowrap; }
+.season__temp { font-weight: 700; font-size: 14px; color: var(--foam); white-space: nowrap; }
 .season td:last-child { font-size: 15px; color: var(--ink-soft); }
 
 /* ---------- программа по дням ---------- */

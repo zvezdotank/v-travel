@@ -20,10 +20,11 @@
 <meta property="og:image:alt" content="Аэросъёмка бирюзового моря — V-travel, туры из Ташкента">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23061c2e'/%3E%3Cpath d='M16 20l16 26 16-26' fill='none' stroke='%2338d0ff' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
+<link rel="preload" href="/assets/fonts/unbounded-900.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/manrope-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/img/hero-water.webp" as="image" fetchpriority="high">
+<link rel="stylesheet" href="/css/fonts.css">
+<link rel="stylesheet" href="/css/styles.css">
 <script>document.documentElement.classList.add('js');</script>
 
 <script type="application/ld+json">
@@ -117,7 +118,7 @@
   <!-- ============ HERO ============ -->
   <section class="hero" id="top">
     <div class="hero__media" aria-hidden="true">
-      <img src="assets/img/hero-water.jpg" alt="" width="2000" height="1269" fetchpriority="high">
+      <img src="assets/img/hero-water.webp" alt="" width="2000" height="1269" fetchpriority="high">
       <div class="hero__caustics"></div>
       <div class="hero__scrim"></div>
     </div>
@@ -274,7 +275,7 @@
 
       <div class="dests">
         <a class="dest dest--wide reveal" href="/turciya/" style="--d:.05s">
-          <img src="assets/img/dest-turkey.jpg" alt="Туры в Турцию из Ташкента — Голубая лагуна Олюдениз с высоты" width="1500" height="952" loading="lazy">
+          <img src="assets/img/dest-turkey.webp" alt="Туры в Турцию из Ташкента — Голубая лагуна Олюдениз с высоты" width="1500" height="952" loading="lazy">
           <div class="dest__body">
             <h3>Турция</h3>
             <p>Анталия · Кемер · Бодрум · Стамбул</p>
@@ -284,7 +285,7 @@
         </a>
 
         <a class="dest reveal" href="/egipet/" style="--d:.1s">
-          <img src="assets/img/dest-egypt.jpg" alt="Туры в Египет — коралловый риф Красного моря с высоты" width="1500" height="952" loading="lazy">
+          <img src="assets/img/dest-egypt.webp" alt="Туры в Египет — коралловый риф Красного моря с высоты" width="1500" height="952" loading="lazy">
           <div class="dest__body">
             <h3>Египет</h3>
             <p>Шарм-эль-Шейх · Хургада</p>
@@ -294,7 +295,7 @@
         </a>
 
         <a class="dest reveal" href="/tailand/" style="--d:.15s">
-          <img src="assets/img/dest-thailand.jpg" alt="Туры в Таиланд — известняковые скалы островов Пхи-Пхи" width="1500" height="952" loading="lazy">
+          <img src="assets/img/dest-thailand.webp" alt="Туры в Таиланд — известняковые скалы островов Пхи-Пхи" width="1500" height="952" loading="lazy">
           <div class="dest__body">
             <h3>Таиланд</h3>
             <p>Пхукет · Паттайя · Самуи</p>
@@ -304,7 +305,7 @@
         </a>
 
         <a class="dest dest--wide reveal" href="/vietnam/" style="--d:.2s">
-          <img src="assets/img/dest-vietnam.jpg" alt="Туры во Вьетнам — острова бухты Халонг в утренней дымке" width="1500" height="952" loading="lazy">
+          <img src="assets/img/dest-vietnam.webp" alt="Туры во Вьетнам — острова бухты Халонг в утренней дымке" width="1500" height="952" loading="lazy">
           <div class="dest__body">
             <h3>Вьетнам</h3>
             <p>Нячанг · Фукуок · Дананг</p>
