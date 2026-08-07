@@ -74,6 +74,30 @@
 .inline-cta__text { margin-top: 8px; font-size: 15px; color: var(--ink-soft); max-width: 62ch; }
 .inline-cta__actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
+/* ---------- широкая фотополоса ---------- */
+.photoband {
+  margin: 30px 0 0;
+  border-radius: var(--r);
+  overflow: hidden;
+  border: 1px solid var(--card-line);
+  position: relative; isolation: isolate;
+}
+/* Кинематографичная лента, а не блок 16:9: полный кадр посреди текста
+   съедал бы пол-экрана и разрывал чтение. */
+.photoband img {
+  width: 100%; display: block;
+  aspect-ratio: 2.4;
+  height: auto; object-fit: cover;
+  filter: saturate(1.05) contrast(1.03);
+}
+@media (max-width: 620px) { .photoband img { aspect-ratio: 1.7; } }
+.photoband figcaption {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 40px 24px 18px;
+  font-size: 14px; color: var(--ink-soft);
+  background: linear-gradient(180deg, transparent, rgba(4,16,28,.9));
+}
+
 /* ---------- сезонность ---------- */
 .section--seasons { background: var(--abyss); }
 .season { overflow-x: auto; border: 1px solid var(--card-line); border-radius: var(--r); }
