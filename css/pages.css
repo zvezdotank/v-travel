@@ -1,0 +1,182 @@
+/* =====================================================
+   V-travel — страницы направлений
+   Продолжают дизайн-систему главной: те же переменные,
+   тот же ритм секций, те же кнопки.
+   ===================================================== */
+
+/* ---------- шапка страницы ---------- */
+.phero {
+  position: relative; isolation: isolate; overflow: hidden;
+  padding: clamp(130px, 16vw, 190px) 0 clamp(56px, 8vw, 90px);
+}
+.phero__media { position: absolute; inset: 0; z-index: -1; }
+.phero__media img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: saturate(1.1) contrast(1.04) brightness(.9);
+}
+.phero__scrim {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, rgba(4,16,28,.9) 0%, rgba(4,16,28,.45) 40%, rgba(4,16,28,.9) 88%, var(--abyss) 100%),
+    linear-gradient(100deg, rgba(4,16,28,.9) 0%, rgba(4,16,28,.3) 65%, transparent 100%);
+}
+
+.crumbs {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  margin-bottom: 20px;
+  font-size: 13px; color: var(--ink-mute);
+}
+.crumbs a { color: var(--cyan); }
+.crumbs a:hover { text-decoration: underline; }
+.crumbs span[aria-hidden] { opacity: .5; }
+
+.phero h1 {
+  font-size: clamp(34px, 5.6vw, 68px);
+  font-weight: 900; text-transform: uppercase; letter-spacing: -.03em;
+  text-shadow: 0 18px 50px rgba(0,0,0,.5);
+}
+.phero__lead { margin-top: 20px; max-width: 54ch; font-size: clamp(16px, 1.8vw, 18.5px); color: var(--ink-soft); }
+.phero__price { margin-top: 22px; font-size: 15px; color: var(--ink-mute); }
+.phero__price strong {
+  font-family: 'Unbounded', sans-serif; font-size: clamp(26px, 3.4vw, 36px);
+  font-weight: 800; letter-spacing: -.04em; color: var(--foam);
+  margin: 0 6px;
+}
+.phero__cta { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 14px; }
+.phero__note { margin-top: 16px; font-size: 14px; color: var(--ink-mute); max-width: 60ch; }
+
+/* ---------- курорты ---------- */
+.section--resorts { background: linear-gradient(180deg, var(--abyss), var(--deep) 60%, var(--abyss)); }
+.resorts { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 16px; }
+.resort {
+  padding: 26px;
+  border-radius: var(--r);
+  border: 1px solid var(--card-line);
+  background: linear-gradient(165deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  transition: border-color .3s var(--ease), transform .3s var(--ease);
+}
+.resort:hover { border-color: rgba(56,208,255,.4); transform: translateY(-4px); }
+.resort h3 { font-size: 22px; text-transform: uppercase; letter-spacing: -.02em; line-height: 1.16; }
+.resort p { margin-top: 12px; font-size: 15px; color: var(--ink-soft); }
+
+/* ---------- врезка с призывом внутри контента ---------- */
+.inline-cta {
+  margin-top: 28px;
+  padding: clamp(22px, 3vw, 30px);
+  border-radius: var(--r);
+  border: 1px dashed rgba(148, 205, 235, .3);
+  background: linear-gradient(120deg, rgba(20,184,166,.1), rgba(15,143,208,.1));
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 24px; flex-wrap: wrap;
+}
+.inline-cta--wide { border-style: solid; border-color: rgba(56,208,255,.28); }
+.inline-cta__title { font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 18px; letter-spacing: -.02em; }
+.inline-cta__text { margin-top: 8px; font-size: 15px; color: var(--ink-soft); max-width: 62ch; }
+.inline-cta__actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* ---------- сезонность ---------- */
+.section--seasons { background: var(--abyss); }
+.season { overflow-x: auto; border: 1px solid var(--card-line); border-radius: var(--r); }
+.season table { width: 100%; border-collapse: collapse; min-width: 560px; }
+.season th, .season td { padding: 16px 20px; text-align: left; }
+.season thead th {
+  font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--cyan); background: rgba(56,208,255,.06);
+  border-bottom: 1px solid var(--card-line);
+}
+.season tbody tr { border-bottom: 1px solid rgba(148,205,235,.1); }
+.season tbody tr:last-child { border-bottom: 0; }
+.season tbody th { font-weight: 800; font-size: 15.5px; white-space: nowrap; }
+.season__temp { font-family: 'Unbounded', sans-serif; font-size: 14px; color: var(--foam); white-space: nowrap; }
+.season td:last-child { font-size: 15px; color: var(--ink-soft); }
+
+/* ---------- программа по дням ---------- */
+.section--tours { background: linear-gradient(180deg, var(--abyss), var(--deep-2) 55%, var(--abyss)); }
+.program { position: relative; padding-left: 8px; }
+/* вертикаль, вдоль которой идут дни */
+.program::before {
+  content: ''; position: absolute; left: 25px; top: 14px; bottom: 14px; width: 2px;
+  background: linear-gradient(180deg, rgba(240,180,41,.5), rgba(56,208,255,.35), transparent);
+}
+.pday { position: relative; display: flex; gap: 22px; padding-bottom: 26px; }
+.pday:last-child { padding-bottom: 0; }
+.pday__mark { flex: none; width: 36px; display: flex; justify-content: center; }
+.pday__mark span {
+  display: grid; place-items: center;
+  min-width: 36px; height: 36px; padding: 0 8px;
+  border-radius: 999px;
+  font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: 13px;
+  color: #04121f; background: linear-gradient(140deg, #ffd978, var(--gold));
+  box-shadow: 0 0 0 5px var(--abyss);
+}
+.pday__body { padding-top: 4px; }
+.pday__body h3 { font-size: 20px; letter-spacing: -.02em; }
+.pday__body p { margin-top: 8px; font-size: 15.5px; color: var(--ink-soft); max-width: 68ch; }
+
+/* ---------- вопросы ---------- */
+.section--faq { background: var(--abyss); }
+.faq { display: flex; flex-direction: column; gap: 12px; }
+.faq__item {
+  border: 1px solid var(--card-line); border-radius: var(--r-sm);
+  background: rgba(255,255,255,.03);
+  transition: border-color .25s var(--ease);
+}
+.faq__item[open] { border-color: rgba(56,208,255,.4); }
+.faq__item summary {
+  padding: 20px 54px 20px 22px;
+  font-weight: 700; font-size: 16.5px; cursor: pointer; position: relative;
+  list-style: none;
+}
+.faq__item summary::-webkit-details-marker { display: none; }
+/* плюс, который на раскрытии превращается в минус */
+.faq__item summary::before,
+.faq__item summary::after {
+  content: ''; position: absolute; right: 24px; top: 50%;
+  width: 14px; height: 2px; background: var(--cyan); border-radius: 2px;
+  transition: transform .3s var(--ease);
+}
+.faq__item summary::after { transform: rotate(90deg); }
+.faq__item[open] summary::after { transform: rotate(0deg); }
+.faq__item p { padding: 0 22px 22px; font-size: 15.5px; color: var(--ink-soft); max-width: 76ch; }
+
+/* ---------- другие направления ---------- */
+.section--other { background: var(--abyss); }
+.otherdests { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.otherdest {
+  position: relative; isolation: isolate; overflow: hidden;
+  min-height: 190px; border-radius: var(--r);
+  border: 1px solid var(--card-line);
+  display: flex; align-items: flex-end; padding: 20px;
+}
+.otherdest img {
+  position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover;
+  filter: saturate(1.05) brightness(.85);
+  transition: transform .7s var(--ease);
+}
+.otherdest::after {
+  content: ''; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(180deg, rgba(4,16,28,.1) 30%, rgba(4,16,28,.85) 100%);
+}
+.otherdest:hover img { transform: scale(1.07); }
+.otherdest span {
+  font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: 22px;
+  text-transform: uppercase; letter-spacing: -.02em;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.otherdest em {
+  font-family: 'Manrope', sans-serif; font-style: normal; font-weight: 700;
+  font-size: 13px; text-transform: none; letter-spacing: 0; color: var(--cyan);
+}
+
+/* ---------- адаптив ---------- */
+@media (max-width: 620px) {
+  .phero__cta .btn { flex: 1 1 100%; }
+  .inline-cta { flex-direction: column; align-items: flex-start; }
+  .inline-cta__actions { width: 100%; flex-direction: column; }
+  .inline-cta__actions .btn { width: 100%; }
+  .pday { gap: 16px; }
+  .program::before { left: 21px; }
+  .pday__mark { width: 30px; }
+  .pday__mark span { min-width: 30px; height: 30px; font-size: 12px; }
+  .faq__item summary { font-size: 15.5px; padding-right: 46px; }
+}
