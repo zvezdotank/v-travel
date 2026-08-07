@@ -109,7 +109,7 @@
   }
 
   /* ---------- активный пункт меню ---------- */
-  var sections = ['hot', 'dest', 'how', 'reviews', 'pick']
+  var sections = ['hot', 'dest', 'tickets', 'how', 'reviews', 'pick']
     .map(function (id) { return document.getElementById(id); })
     .filter(Boolean);
   var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav__link'));

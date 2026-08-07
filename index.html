@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Горящие туры из Ташкента — турагентство V-travel</title>
-<meta name="description" content="Турагентство V-travel в Ташкенте: горящие туры от $590, подбор за 15 минут, перелёт, отель, виза и страховка под ключ. Звоните +998 90 317-22-88 или пишите в Telegram.">
+<meta name="description" content="Турагентство V-travel в Ташкенте: горящие туры от $590, авиабилеты, подбор за 15 минут, отель, виза и страховка под ключ. Звоните +998 90 317-22-88 или пишите в Telegram.">
 <meta name="theme-color" content="#04121f">
 <link rel="canonical" href="https://v-travel.uz/">
 
@@ -52,6 +52,16 @@
     "opens": "09:00",
     "closes": "21:00"
   }],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Услуги V-travel",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Горящие туры"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Подбор и оформление туров под ключ"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Авиабилеты"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Оформление виз и страховок"}}
+    ]
+  },
   "sameAs": [
     "https://t.me/vtour_travel",
     "https://t.me/vtour_deals"
@@ -76,6 +86,7 @@
     <nav class="nav" id="nav" aria-label="Основная навигация">
       <a href="#hot" class="nav__link">Горящие туры</a>
       <a href="#dest" class="nav__link">Направления</a>
+      <a href="#tickets" class="nav__link">Авиабилеты</a>
       <a href="#how" class="nav__link">Как работаем</a>
       <a href="#reviews" class="nav__link">Отзывы</a>
       <a href="#pick" class="nav__link">Подбор тура</a>
@@ -316,6 +327,51 @@
     </div>
   </section>
 
+  <!-- ============ AIR TICKETS ============ -->
+  <section class="section section--tickets" id="tickets">
+    <div class="shell tickets">
+      <div class="tickets__intro reveal">
+        <p class="sec-kicker">Авиабилеты</p>
+        <h2 class="sec-title">Авиабилеты<br>из Ташкента</h2>
+        <p class="sec-lead">
+          Продаём билеты отдельно от туров — на любые направления и любые даты.
+          Смотрим все доступные тарифы и стыковки, а не первую строчку в агрегаторе.
+        </p>
+
+        <ul class="tickets__perks">
+          <li>Подберём дешёвую дату вылета, если поездка не привязана к числу</li>
+          <li>Разберёмся с багажом, местами и питанием до оплаты, а не после</li>
+          <li>Поможем с возвратом и обменом, если планы изменятся</li>
+          <li>Детские и семейные тарифы, групповые перелёты</li>
+        </ul>
+
+        <div class="tickets__cta">
+          <a href="tel:+998903172288" class="btn btn--primary" data-goal="call">Позвонить</a>
+          <a class="btn btn--tg js-book" href="https://t.me/vtour_travel"
+             data-tour="Нужен авиабилет" data-goal="telegram">Запросить билет в Telegram</a>
+        </div>
+      </div>
+
+      <div class="tickets__routes reveal" style="--d:.1s">
+        <p class="tickets__routes-title">Чаще всего берут</p>
+        <ul>
+          <li>Ташкент — Стамбул</li>
+          <li>Ташкент — Дубай</li>
+          <li>Ташкент — Москва</li>
+          <li>Ташкент — Бангкок</li>
+          <li>Ташкент — Сеул</li>
+          <li>Ташкент — Джидда</li>
+          <li>Ташкент — Куала-Лумпур</li>
+          <li>Ташкент — Франкфурт</li>
+        </ul>
+        <p class="tickets__routes-note">
+          Цена зависит от даты и глубины бронирования — назовите направление,
+          и мы посчитаем на ваши числа.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ WHY ============ -->
   <section class="section section--why">
     <div class="shell">
@@ -529,6 +585,7 @@
     <nav class="footer__nav" aria-label="Разделы сайта">
       <a href="#hot">Горящие туры</a>
       <a href="#dest">Направления</a>
+      <a href="#tickets">Авиабилеты</a>
       <a href="#how">Как работаем</a>
       <a href="#reviews">Отзывы</a>
       <a href="#pick">Подбор тура</a>
