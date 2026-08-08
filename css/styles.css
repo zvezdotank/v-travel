@@ -454,7 +454,7 @@ button { font: inherit; }
 /* --- авиабилеты --- */
 .section--tickets {
   background:
-    radial-gradient(65% 55% at 100% 30%, rgba(240, 180, 41, .1), transparent 60%),
+    radial-gradient(65% 55% at 100% 30%, rgba(15, 143, 208, .16), transparent 60%),
     linear-gradient(180deg, var(--abyss), var(--deep) 55%, var(--abyss));
 }
 .tickets { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(28px, 5vw, 56px); align-items: start; }
@@ -474,12 +474,12 @@ button { font: inherit; }
 .tickets__routes {
   padding: clamp(22px, 3vw, 32px);
   border-radius: var(--r);
-  border: 1px solid rgba(240, 180, 41, .3);
-  background: linear-gradient(160deg, rgba(240, 180, 41, .07), rgba(255, 255, 255, .02));
+  border: 1px solid var(--card-line);
+  background: linear-gradient(165deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
 }
 .tickets__routes-title {
   font-size: 12.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 18px;
+  color: var(--cyan); margin-bottom: 18px;
 }
 .tickets__routes ul { display: flex; flex-direction: column; }
 .tickets__routes li {
@@ -504,17 +504,14 @@ button { font: inherit; }
 .step__hud {
   position: relative; height: 100%;
   padding: 30px 26px;
-  border: 1px solid rgba(240, 180, 41, .32);
-  border-radius: var(--r-sm);
-  background: linear-gradient(160deg, rgba(240, 180, 41, .07), rgba(255,255,255,.02));
+  border: 1px solid var(--card-line);
+  border-radius: var(--r);
+  background: linear-gradient(165deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  transition: border-color .3s var(--ease), transform .3s var(--ease);
 }
-/* уголки-засечки */
-.step__hud::before {
-  content: ''; position: absolute; width: 16px; height: 16px; border: 2px solid var(--gold);
-}
-.step__hud::before { top: -1px; left: -1px; border-right: 0; border-bottom: 0; border-radius: var(--r-sm) 0 0 0; }
+.step__hud:hover { border-color: rgba(56, 208, 255, .4); transform: translateY(-4px); }
 
-.step__n { font-family: 'Unbounded', sans-serif; font-size: 42px; font-weight: 800; color: rgba(240, 180, 41, .55); letter-spacing: -.05em; }
+.step__n { font-family: 'Unbounded', sans-serif; font-size: 32px; font-weight: 800; color: var(--gold); letter-spacing: -.05em; }
 .step__hud h3 { margin: 10px 0 12px; font-size: 22px; }
 .step__hud p { color: var(--ink-soft); font-size: 15px; }
 

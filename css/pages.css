@@ -120,7 +120,7 @@
 /* вертикаль, вдоль которой идут дни */
 .program::before {
   content: ''; position: absolute; left: 25px; top: 14px; bottom: 14px; width: 2px;
-  background: linear-gradient(180deg, rgba(240,180,41,.5), rgba(56,208,255,.35), transparent);
+  background: linear-gradient(180deg, rgba(56,208,255,.45), rgba(56,208,255,.2), transparent);
 }
 .pday { position: relative; display: flex; gap: 22px; padding-bottom: 26px; }
 .pday:last-child { padding-bottom: 0; }
