@@ -200,13 +200,16 @@ button { font: inherit; }
   width: 100%; height: 100%; object-fit: cover;
   transform: scale(1.06);
   will-change: transform;
-  animation: heroDrift 46s var(--ease) infinite alternate;
+  animation: heroDrift 20s ease-in-out infinite alternate;
 }
-/* Медленный наплыв: за минуту кадр проходит путь, который глаз почти
-   не замечает, но вода перестаёт быть фотографией и начинает дышать. */
+/* Наплыв кадра. Амплитуду меряем в пикселях у края: масштаб меняется на
+   0.18, то есть на экране 1440px край проходит около 130px за 20 секунд,
+   плюс собственный сдвиг — порядка 9 пикселей в секунду. Это выше порога,
+   на котором движение вообще заметно, но ещё не отвлекает от текста.
+   Первая версия давала 1 пиксель в секунду и была не видна совсем. */
 @keyframes heroDrift {
-  from { transform: scale(1.06) translate3d(0, 0, 0); }
-  to   { transform: scale(1.13) translate3d(-1.4%, -1.2%, 0); }
+  from { transform: scale(1.04) translate3d(0, 0, 0); }
+  to   { transform: scale(1.22) translate3d(-3.5%, -2.5%, 0); }
 }
 
 /* Блик, проходящий по воде — как солнце по ряби. Обычная прозрачность,
@@ -214,14 +217,14 @@ button { font: inherit; }
 .hero__caustics {
   position: absolute; inset: -30% -40%;
   background:
-    linear-gradient(101deg, transparent 40%, rgba(196, 238, 255, .13) 50%, transparent 60%),
-    linear-gradient(101deg, transparent 64%, rgba(140, 220, 255, .08) 72%, transparent 80%);
+    linear-gradient(101deg, transparent 43%, rgba(206, 244, 255, .3) 50%, transparent 57%),
+    linear-gradient(101deg, transparent 67%, rgba(150, 226, 255, .18) 72%, transparent 77%);
   will-change: transform;
-  animation: heroSheen 30s ease-in-out infinite alternate;
+  animation: heroSheen 16s ease-in-out infinite alternate;
 }
 @keyframes heroSheen {
-  from { transform: translate3d(-14%, 0, 0); }
-  to   { transform: translate3d(14%, 0, 0); }
+  from { transform: translate3d(-16%, 0, 0); }
+  to   { transform: translate3d(16%, 0, 0); }
 }
 
 /* Параллакс при прокрутке: вода уходит медленнее текста. Считает браузер
@@ -241,7 +244,7 @@ button { font: inherit; }
       animation-range: 0 100vh;
     }
     @keyframes heroParallax {
-      to { transform: translate3d(0, 8%, 0); }
+      to { transform: translate3d(0, 16%, 0); }
     }
   }
 }
