@@ -477,10 +477,11 @@ button { font: inherit; }
    Вырезы сделаны маской, а не кружками в цвет фона: под талоном лежит
    градиент, и залитый кружок дал бы заметный шов. */
 .boardingpass {
-  --notch: 13px;
+  --notch: 22px;
   --stub: 104px;                      /* высота отрывного корешка */
   border-radius: var(--r);
-  background: linear-gradient(165deg, rgba(255,255,255,.07), rgba(255,255,255,.025));
+  background: linear-gradient(165deg, rgba(226, 240, 249, .16), rgba(226, 240, 249, .07));
+  box-shadow: 0 30px 60px -34px rgba(0, 0, 0, .9);
   -webkit-mask:
     radial-gradient(var(--notch) at 0 calc(100% - var(--stub)), transparent 97%, #000),
     radial-gradient(var(--notch) at 100% calc(100% - var(--stub)), transparent 97%, #000);
@@ -534,9 +535,27 @@ button { font: inherit; }
   min-height: var(--stub);
   display: flex; align-items: center;
   padding: 0 clamp(22px, 3vw, 30px);
-  border-top: 1px dashed rgba(148, 205, 235, .32);
+  position: relative;
 }
+/* перфорация: ряд точек, а не сплошной пунктир — именно так выглядит
+   линия отрыва на настоящем талоне */
+.boardingpass__stub::before {
+  content: ''; position: absolute; left: 14px; right: 14px; top: 0;
+  height: 2px;
+  background: radial-gradient(circle, rgba(226, 240, 249, .55) 1px, transparent 1.6px);
+  background-size: 9px 2px;
+}
+.boardingpass__stub { gap: 20px; }
 .boardingpass__stub p { font-size: 13px; line-height: 1.55; color: var(--ink-mute); }
+/* штрихкод нарисован полосами: узнаётся мгновенно и ничего не весит */
+.bp__barcode {
+  flex: none; width: 76px; height: 46px; align-self: center;
+  background: repeating-linear-gradient(90deg,
+    rgba(234, 246, 251, .85) 0 2px, transparent 2px 4px,
+    rgba(234, 246, 251, .85) 4px 5px, transparent 5px 8px,
+    rgba(234, 246, 251, .85) 8px 11px, transparent 11px 13px);
+  opacity: .5;
+}
 
 @media (max-width: 620px) {
   .boardingpass { --stub: 120px; }
