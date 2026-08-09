@@ -406,9 +406,11 @@ def build_page(d, all_dests):
     url = "%s/%s/" % (SITE, d["slug"])
     img = "/assets/img/%s" % d["image"]
 
-    title = "Туры %s из Ташкента — цены, курорты и авторские программы | V-travel" % to
-    desc = ("Туры %s из Ташкента от $%s: какие курорты кому подходят, когда лучше лететь, "
-            "авторские программы. Подберём за 15 минут — позвоните %s или напишите в Telegram."
+    # до 60 символов — дальше поисковик обрезает
+    title = "Туры %s из Ташкента — цены и авторские программы" % to
+    # до 155 символов — дальше обрезается в выдаче
+    desc = ("Туры %s из Ташкента от $%s: какой курорт кому подходит, когда лететь, "
+            "авторская программа по дням. Подбор за 15 минут, звоните %s."
             % (to, d["price"], PHONE_HUMAN))
 
     # ─ курорты
@@ -491,7 +493,10 @@ def build_page(d, all_dests):
 <meta property="og:url" content="{url}">
 <meta property="og:title" content="{e(title)}">
 <meta property="og:description" content="{e(desc)}">
-<meta property="og:image" content="{SITE}{img}">
+<meta property="og:image" content="{SITE}/assets/img/og-{d["slug"]}.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{e(title)}">
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23061c2e'/%3E%3Cpath d='M16 20l16 26 16-26' fill='none' stroke='%2338d0ff' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preload" href="/assets/fonts/unbounded-900.woff2" as="font" type="font/woff2" crossorigin>
