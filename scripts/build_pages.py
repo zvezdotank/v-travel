@@ -629,7 +629,7 @@ def build_page(d, all_dests):
       <figure class="porthole reveal" aria-hidden="true">
         <span class="porthole__frame">
           <span class="porthole__glass">
-            <img src="/assets/img/porthole-view.webp" alt="" width="760" height="1013" loading="lazy">
+            <img src="/assets/img/porthole-view.webp" alt="" width="820" height="1138" loading="lazy">
             <span class="porthole__glare"></span>
           </span>
         </span>
