@@ -603,7 +603,6 @@ button { font: inherit; }
   border: 1px solid var(--card-line);
   background: linear-gradient(165deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
 }
-.budget__controls { display: flex; flex-direction: column; gap: 30px; }
 
 /* ---- бегунок ---- */
 .range { display: grid; grid-template-columns: 1fr auto; gap: 6px 12px; align-items: baseline; }
@@ -641,28 +640,33 @@ button { font: inherit; }
 }
 .range__hint { grid-column: 1 / -1; font-size: 12.5px; color: var(--ink-mute); }
 
-/* ---- две полосы сравнения ---- */
-.budget__chart { display: flex; flex-direction: column; gap: 16px; justify-content: center; }
-.bar { display: grid; grid-template-columns: 46px minmax(0, 1fr) auto; gap: 12px; align-items: center; }
-.bar__label { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-mute); }
-.bar__track { height: 12px; border-radius: 999px; background: rgba(148, 205, 235, .14); overflow: hidden; }
-.bar__fill {
-  display: block; height: 100%; width: 0; border-radius: 999px;
-  transition: width .45s var(--ease);
+/* ---- какие направления попадают в бюджет ---- */
+.budget__pick { display: flex; flex-direction: column; gap: 28px; }
+.budget__fits-title {
+  font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--cyan); margin-bottom: 14px;
 }
-.bar__fill--plan { background: linear-gradient(90deg, #7fe3ff, var(--cyan)); }
-.bar__fill--fact { background: linear-gradient(90deg, #ffd978, var(--gold)); }
-.bar__num { font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: 15px; letter-spacing: -.02em; min-width: 68px; text-align: right; }
-.budget__delta { margin-top: 6px; font-size: 15px; color: var(--ink-soft); }
-.budget__delta b { color: var(--foam); font-weight: 800; }
+.budget__fits ul { display: flex; flex-direction: column; gap: 2px; }
+.budget__fits li a,
+.budget__fits li span {
+  display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 12px;
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(148, 205, 235, .12);
+  font-size: 16px; font-weight: 700;
+}
+.budget__fits li a { transition: color .2s; }
+.budget__fits li a:hover { color: var(--cyan); }
+.budget__fits li b {
+  font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: 15px;
+  letter-spacing: -.02em; color: var(--foam);
+}
+.budget__fits li span { color: var(--ink-mute); font-weight: 400; font-size: 15px; }
 
 /* ---- из чего набегает разница ---- */
-.budget__why { grid-column: 1 / -1; padding-top: 26px; border-top: 1px solid var(--card-line); }
+.budget__why { padding-left: clamp(0px, 2vw, 20px); }
+@media (max-width: 899px) { .budget__why { padding-left: 0; padding-top: 26px; border-top: 1px solid var(--card-line); } }
 .budget__why-title { font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: 17px; letter-spacing: -.02em; }
-.budget__why ul {
-  margin-top: 16px;
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px 24px;
-}
+.budget__why ul { margin-top: 16px; display: flex; flex-direction: column; gap: 10px; }
 .budget__why li { position: relative; padding-left: 18px; font-size: 15px; color: var(--ink-soft); }
 .budget__why li::before {
   content: ''; position: absolute; left: 0; top: 9px;

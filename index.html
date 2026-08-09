@@ -502,46 +502,27 @@
     <div class="shell">
       <header class="sec-head reveal">
         <p class="sec-kicker">Бюджет поездки</p>
-        <h2 class="sec-title">План и факт</h2>
-        <p class="sec-lead">Почти всегда отпуск выходит дороже, чем закладывали. Подвиньте бегунки — покажем, из чего обычно набегает разница.</p>
+        <h2 class="sec-title">Сколько закладывать</h2>
+        <p class="sec-lead">Подвиньте бегунок — покажем, какие направления попадают в эту сумму и из чего обычно набегает разница сверх плана.</p>
       </header>
 
       <div class="budget reveal">
-        <div class="budget__controls">
+        <div class="budget__pick">
           <div class="range">
             <label for="planRange">Планирую на человека</label>
             <output class="range__value" id="planOut">$800</output>
-            <input type="range" id="planRange" min="300" max="3000" step="50" value="800"
-                   aria-describedby="planOut">
+            <input type="range" id="planRange" min="300" max="3000" step="50" value="800" aria-describedby="planOut">
             <div class="range__ends"><span>$300</span><span>$3000</span></div>
           </div>
 
-          <div class="range">
-            <label for="factRange">Прошлая поездка обошлась</label>
-            <output class="range__value" id="factOut">$1000</output>
-            <input type="range" id="factRange" min="300" max="3000" step="50" value="1000"
-                   aria-describedby="factOut">
-            <div class="range__ends"><span>$300</span><span>$3000</span></div>
-            <p class="range__hint">Не помните — оставьте как есть</p>
+          <div class="budget__fits">
+            <p class="budget__fits-title">Что попадает в эту сумму</p>
+            <ul id="fitsList"></ul>
           </div>
-        </div>
-
-        <div class="budget__chart" aria-hidden="true">
-          <div class="bar">
-            <span class="bar__label">План</span>
-            <span class="bar__track"><span class="bar__fill bar__fill--plan" id="planBar"></span></span>
-            <span class="bar__num" id="planNum">$800</span>
-          </div>
-          <div class="bar">
-            <span class="bar__label">Факт</span>
-            <span class="bar__track"><span class="bar__fill bar__fill--fact" id="factBar"></span></span>
-            <span class="bar__num" id="factNum">$1000</span>
-          </div>
-          <p class="budget__delta" id="delta"></p>
         </div>
 
         <div class="budget__why">
-          <p class="budget__why-title">Из чего обычно набегает разница</p>
+          <p class="budget__why-title">Почему выходит дороже, чем закладывали</p>
           <ul>
             <li>Трансфер из аэропорта и багаж сверх нормы</li>
             <li>Страховка и оформление документов</li>
@@ -558,6 +539,7 @@
       </div>
     </div>
   </section>
+
 
   <section class="section section--pick" id="pick">
     <div class="shell pick">

@@ -149,52 +149,40 @@
     });
   }
 
-  /* ---------- бюджет: план и факт ----------
-     Считаем только то, что человек ввёл сам. Никаких «средних по рынку»:
-     сравнивать не с кем — ответы никуда не отправляются и нигде не копятся. */
+  /* ---------- бюджет поездки ----------
+     Один бегунок: человек называет сумму и сразу видит, какие направления
+     в неё попадают. Цены берём те же, что стоят на карточках направлений,
+     чтобы на сайте нигде не было двух разных чисел про одно и то же. */
   var planRange = document.getElementById('planRange');
-  var factRange = document.getElementById('factRange');
 
-  if (planRange && factRange) {
-    var MAX = parseInt(planRange.max, 10);
+  if (planRange) {
+    var DESTS = [
+      { name: 'Турция',  price: 520, url: '/turciya/' },
+      { name: 'Египет',  price: 590, url: '/egipet/' },
+      { name: 'Вьетнам', price: 720, url: '/vietnam/' },
+      { name: 'Таиланд', price: 790, url: '/tailand/' }
+    ];
     var money = function (n) { return '$' + n.toLocaleString('ru-RU').replace(/,/g, ' '); };
-
-    var els = {
-      planOut: document.getElementById('planOut'),
-      factOut: document.getElementById('factOut'),
-      planBar: document.getElementById('planBar'),
-      factBar: document.getElementById('factBar'),
-      planNum: document.getElementById('planNum'),
-      factNum: document.getElementById('factNum'),
-      delta: document.getElementById('delta'),
-      tg: document.getElementById('budgetTg')
-    };
+    var planOut = document.getElementById('planOut');
+    var fitsList = document.getElementById('fitsList');
+    var budgetTg = document.getElementById('budgetTg');
 
     var renderBudget = function () {
       var plan = +planRange.value;
-      var fact = +factRange.value;
+      planOut.textContent = money(plan);
 
-      els.planOut.textContent = els.planNum.textContent = money(plan);
-      els.factOut.textContent = els.factNum.textContent = money(fact);
-      els.planBar.style.width = (plan / MAX * 100) + '%';
-      els.factBar.style.width = (fact / MAX * 100) + '%';
+      var fits = DESTS.filter(function (d) { return d.price <= plan; });
+      fitsList.innerHTML = fits.length
+        ? fits.map(function (d) {
+            return '<li><a href="' + d.url + '">' + d.name +
+                   '<b>от ' + money(d.price) + '</b></a></li>';
+          }).join('')
+        : '<li><span>В эту сумму пока не попадает ни одно направление — позвоните, поищем горящее</span></li>';
 
-      var diff = fact - plan;
-      var pct = plan ? Math.round(Math.abs(diff) / plan * 100) : 0;
-      if (diff > 0) {
-        els.delta.innerHTML = 'Прошлая поездка вышла дороже плана на <b>' + money(diff) +
-          '</b> — это ' + pct + '% сверху.';
-      } else if (diff < 0) {
-        els.delta.innerHTML = 'В прошлый раз уложились дешевле плана на <b>' + money(-diff) + '</b>.';
-      } else {
-        els.delta.innerHTML = 'План и факт совпали — так бывает редко.';
-      }
+      budgetTg.href = tgLink('Здравствуйте! Планирую около ' + money(plan) +
+        ' на человека. Что можно подобрать?');
 
-      els.tg.href = tgLink('Здравствуйте! Планирую около ' + money(plan) +
-        ' на человека, прошлая поездка обошлась примерно в ' + money(fact) +
-        '. Что можно подобрать?');
-
-      // бюджет из бегунка подставляем в форму подбора ниже по странице
+      // подставляем бюджет в форму подбора ниже по странице
       var budgetSelect = document.getElementById('f-budget');
       if (budgetSelect) {
         var bands = [[600, 'до $600'], [1000, '$600–1000'], [1500, '$1000–1500'], [Infinity, 'от $1500']];
@@ -210,7 +198,6 @@
     };
 
     planRange.addEventListener('input', renderBudget);
-    factRange.addEventListener('input', renderBudget);
     renderBudget();
   }
 
