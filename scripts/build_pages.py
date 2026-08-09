@@ -307,7 +307,7 @@ def header_html():
       <a href="/#reviews" class="nav__link">Отзывы</a>
       <a href="/#pick" class="nav__link">Подбор тура</a>
       <div class="nav__mobile-actions">
-        <a href="tel:{PHONE}" class="btn btn--ghost btn--block">Позвонить</a>
+        <a href="tel:{PHONE}" class="btn btn--ghost btn--block">+998 90 317-22-88</a>
         <a href="https://t.me/{TG}" target="_blank" rel="noopener" class="btn btn--tg btn--block">Написать в Telegram</a>
       </div>
     </nav>
@@ -394,7 +394,7 @@ def cta_strip(title, text, tg_text):
           <p class="inline-cta__text">{e(text)}</p>
         </div>
         <div class="inline-cta__actions">
-          <a href="tel:{PHONE}" class="btn btn--primary" data-goal="call">{ICON_PHONE}Позвонить</a>
+          <a href="tel:{PHONE}" class="btn btn--primary" data-goal="call">{ICON_PHONE}+998 90 317-22-88</a>
           <a href="{e(tg_link(tg_text))}" target="_blank" rel="noopener" class="btn btn--tg" data-goal="telegram">{ICON_TG}Telegram</a>
         </div>
       </div>'''
@@ -527,7 +527,7 @@ def build_page(d, all_dests):
       <p class="phero__lead">{e(d["lead"])}</p>
       <p class="phero__price">от <strong>${e(d["price"])}</strong> за человека</p>
       <div class="phero__cta">
-        <a href="tel:{PHONE}" class="btn btn--primary btn--lg" data-goal="call">{ICON_PHONE}Позвонить сейчас</a>
+        <a href="tel:{PHONE}" class="btn btn--primary btn--lg" data-goal="call">{ICON_PHONE}+998 90 317-22-88</a>
         <a href="{e(tg_link("Здравствуйте! Интересуют туры %s из Ташкента." % to))}" target="_blank" rel="noopener" class="btn btn--tg btn--lg" data-goal="telegram">{ICON_TG}Написать в Telegram</a>
       </div>
       <p class="phero__note">{e(d["flight"])} Подбор бесплатный, ответим за 5 минут.</p>
@@ -591,7 +591,7 @@ def build_page(d, all_dests):
           <p class="inline-cta__text">Можно добавить дни на море, поменять города местами или убрать переезды — скажите, что важно, и пересоберём. Стоимость зависит от дат и класса отелей, поэтому считаем под конкретные числа.</p>
         </div>
         <div class="inline-cta__actions">
-          <a href="tel:{PHONE}" class="btn btn--primary" data-goal="call">{ICON_PHONE}Позвонить</a>
+          <a href="tel:{PHONE}" class="btn btn--primary" data-goal="call">{ICON_PHONE}+998 90 317-22-88</a>
           <a href="{e(tg_link(prog_msg))}" target="_blank" rel="noopener" class="btn btn--tg" data-goal="telegram">{ICON_TG}Рассчитать в Telegram</a>
         </div>
       </div>

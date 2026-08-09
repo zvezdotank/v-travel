@@ -678,8 +678,6 @@ button { font: inherit; }
   .nav__link::after { display: none; }
   .nav__mobile-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
   .burger { display: block; }
-  .header__phone span { display: none; }
-  .header__phone { padding: 11px; }
   .header__actions .btn--tg { display: none; }
   .header__inner { gap: 12px; }
 }
@@ -693,6 +691,12 @@ button { font: inherit; }
 }
 
 @media (max-width: 620px) {
+  /* Номер уходит из шапки только здесь: до этой ширины он помещается
+     и остаётся видимым — на компьютере и планшете человек должен видеть
+     сам номер, а не только кнопку «позвонить». */
+  .header__phone span { display: none; }
+  .header__phone { padding: 11px; }
+
   .hero { padding-top: 104px; min-height: auto; }
   .hero__title { font-size: clamp(38px, 12vw, 60px); }
   .hero__title-out { -webkit-text-stroke-width: 1.5px; }
