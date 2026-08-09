@@ -347,22 +347,83 @@
         </div>
       </div>
 
-      <div class="tickets__routes reveal" style="--d:.1s">
-        <p class="tickets__routes-title">Чаще всего берут</p>
-        <ul>
-          <li>Ташкент — Стамбул</li>
-          <li>Ташкент — Дубай</li>
-          <li>Ташкент — Москва</li>
-          <li>Ташкент — Бангкок</li>
-          <li>Ташкент — Сеул</li>
-          <li>Ташкент — Джидда</li>
-          <li>Ташкент — Куала-Лумпур</li>
-          <li>Ташкент — Франкфурт</li>
-        </ul>
-        <p class="tickets__routes-note">
-          Цена зависит от даты и глубины бронирования — назовите направление,
-          и мы посчитаем на ваши числа.
-        </p>
+      <div class="boardingpass reveal" style="--d:.1s">
+        <div class="boardingpass__body">
+          <div class="bp__head">
+            <span class="bp__brand">V-travel</span>
+            <span class="bp__label">Чаще всего берут</span>
+          </div>
+          <ul class="bp__routes">
+            <li>
+              <span class="bp__code">TAS</span>
+              <span class="bp__path" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M2.5 19l19-7-19-7v6l14 1-14 1z"/></svg>
+              </span>
+              <span class="bp__code">IST</span>
+              <span class="bp__city">Стамбул</span>
+            </li>
+            <li>
+              <span class="bp__code">TAS</span>
+              <span class="bp__path" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M2.5 19l19-7-19-7v6l14 1-14 1z"/></svg>
+              </span>
+              <span class="bp__code">DXB</span>
+              <span class="bp__city">Дубай</span>
+            </li>
+            <li>
+              <span class="bp__code">TAS</span>
+              <span class="bp__path" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M2.5 19l19-7-19-7v6l14 1-14 1z"/></svg>
+              </span>
+              <span class="bp__code">MOW</span>
+              <span class="bp__city">Москва</span>
+            </li>
+            <li>
+              <span class="bp__code">TAS</span>
+              <span class="bp__path" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M2.5 19l19-7-19-7v6l14 1-14 1z"/></svg>
+              </span>
+              <span class="bp__code">BKK</span>
+              <span class="bp__city">Бангкок</span>
+            </li>
+            <li>
+              <span class="bp__code">TAS</span>
+              <span class="bp__path" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M2.5 19l19-7-19-7v6l14 1-14 1z"/></svg>
+              </span>
+              <span class="bp__code">ICN</span>
+              <span class="bp__city">Сеул</span>
+            </li>
+            <li>
+              <span class="bp__code">TAS</span>
+              <span class="bp__path" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M2.5 19l19-7-19-7v6l14 1-14 1z"/></svg>
+              </span>
+              <span class="bp__code">JED</span>
+              <span class="bp__city">Джидда</span>
+            </li>
+            <li>
+              <span class="bp__code">TAS</span>
+              <span class="bp__path" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M2.5 19l19-7-19-7v6l14 1-14 1z"/></svg>
+              </span>
+              <span class="bp__code">KUL</span>
+              <span class="bp__city">Куала-Лумпур</span>
+            </li>
+            <li>
+              <span class="bp__code">TAS</span>
+              <span class="bp__path" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M2.5 19l19-7-19-7v6l14 1-14 1z"/></svg>
+              </span>
+              <span class="bp__code">FRA</span>
+              <span class="bp__city">Франкфурт</span>
+            </li>
+          </ul>
+        </div>
+        <div class="boardingpass__stub">
+          <p>Цена зависит от даты и глубины бронирования — назовите направление,
+          и мы посчитаем на ваши числа.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -543,7 +604,22 @@
   <section class="cta" id="contacts">
     <div class="cta__media" aria-hidden="true"><div class="cta__caustics"></div></div>
     <div class="shell cta__inner">
-      <h2 class="cta__title reveal">Позвоните —<br>и через 15 минут<br>у вас будут варианты</h2>
+      <figure class="porthole reveal" aria-hidden="true">
+        <span class="porthole__frame">
+          <span class="porthole__glass">
+            <img src="/assets/img/porthole-view.webp" alt="" width="760" height="1013" loading="lazy">
+            <span class="porthole__glare"></span>
+          </span>
+        </span>
+        <figcaption class="porthole__hud">
+          <span>TAS</span>
+          <span class="porthole__hud-line"></span>
+          <span>ваш рейс</span>
+        </figcaption>
+      </figure>
+
+      <div class="cta__text">
+      <h2 class="cta__title reveal">Позвоните — и через 15 минут у вас будут варианты</h2>
       <p class="cta__lead reveal" style="--d:.05s">Ежедневно с 09:00 до 21:00. Подбор бесплатный, ни к чему не обязывает.</p>
 
       <a href="tel:+998903172288" class="cta__phone reveal" style="--d:.1s" data-goal="call">+998 90 317-22-88</a>
@@ -559,6 +635,7 @@
       <p class="cta__extra reveal" style="--d:.2s">
         Канал с горящими турами: <a href="https://t.me/vtour_deals" target="_blank" rel="noopener">@vtour_deals</a>
       </p>
+      </div>
     </div>
   </section>
 

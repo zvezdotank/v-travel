@@ -626,7 +626,22 @@ def build_page(d, all_dests):
   <section class="cta" id="contacts">
     <div class="cta__media" aria-hidden="true"><div class="cta__caustics"></div></div>
     <div class="shell cta__inner">
-      <h2 class="cta__title reveal">Позвоните —<br>и через 15 минут<br>у вас будут варианты</h2>
+      <figure class="porthole reveal" aria-hidden="true">
+        <span class="porthole__frame">
+          <span class="porthole__glass">
+            <img src="/assets/img/porthole-view.webp" alt="" width="760" height="1013" loading="lazy">
+            <span class="porthole__glare"></span>
+          </span>
+        </span>
+        <figcaption class="porthole__hud">
+          <span>TAS</span>
+          <span class="porthole__hud-line"></span>
+          <span>ваш рейс</span>
+        </figcaption>
+      </figure>
+
+      <div class="cta__text">
+      <h2 class="cta__title reveal">Позвоните — и через 15 минут у вас будут варианты</h2>
       <p class="cta__lead reveal">Ежедневно с 09:00 до 21:00. Подбор бесплатный, ни к чему не обязывает.</p>
       <a href="tel:{PHONE}" class="cta__phone reveal" data-goal="call">{PHONE_HUMAN}</a>
       <div class="cta__buttons reveal">
@@ -634,6 +649,7 @@ def build_page(d, all_dests):
         <a href="{e(tg_link("Здравствуйте! Интересуют туры %s." % to))}" target="_blank" rel="noopener" class="btn btn--tg btn--lg" data-goal="telegram">{ICON_TG}Написать в Telegram</a>
       </div>
       <p class="cta__extra reveal">Канал с горящими турами: <a href="https://t.me/{TG_DEALS}" target="_blank" rel="noopener">@{TG_DEALS}</a></p>
+      </div>
     </div>
   </section>
 

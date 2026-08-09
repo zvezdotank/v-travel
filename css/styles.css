@@ -471,23 +471,78 @@ button { font: inherit; }
 }
 .tickets__cta { margin-top: 30px; display: flex; gap: 12px; flex-wrap: wrap; }
 
-.tickets__routes {
-  padding: clamp(22px, 3vw, 32px);
+/* ── посадочный талон ──────────────────────────────────────────────
+   Отсылка к тому же иллюминатору, что и в референсах: тонкие линии,
+   моноширинные коды аэропортов, линия отрыва с вырезами по краям.
+   Вырезы сделаны маской, а не кружками в цвет фона: под талоном лежит
+   градиент, и залитый кружок дал бы заметный шов. */
+.boardingpass {
+  --notch: 13px;
+  --stub: 104px;                      /* высота отрывного корешка */
   border-radius: var(--r);
-  border: 1px solid var(--card-line);
-  background: linear-gradient(165deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  background: linear-gradient(165deg, rgba(255,255,255,.07), rgba(255,255,255,.025));
+  -webkit-mask:
+    radial-gradient(var(--notch) at 0 calc(100% - var(--stub)), transparent 97%, #000),
+    radial-gradient(var(--notch) at 100% calc(100% - var(--stub)), transparent 97%, #000);
+  -webkit-mask-composite: source-in;
+  mask:
+    radial-gradient(var(--notch) at 0 calc(100% - var(--stub)), transparent 97%, #000),
+    radial-gradient(var(--notch) at 100% calc(100% - var(--stub)), transparent 97%, #000);
+  mask-composite: intersect;
 }
-.tickets__routes-title {
-  font-size: 12.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
-  color: var(--cyan); margin-bottom: 18px;
+.boardingpass__body { padding: clamp(22px, 3vw, 30px) clamp(22px, 3vw, 30px) 26px; }
+
+.bp__head {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 14px;
+  padding-bottom: 16px; margin-bottom: 6px;
+  border-bottom: 1px solid var(--card-line);
 }
-.tickets__routes ul { display: flex; flex-direction: column; }
-.tickets__routes li {
-  padding: 11px 0; font-size: 15.5px; font-weight: 600;
-  border-bottom: 1px solid rgba(148, 205, 235, .12);
+.bp__brand { font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: 15px; letter-spacing: -.03em; }
+.bp__label {
+  font-size: 11.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--cyan);
 }
-.tickets__routes li:last-child { border-bottom: 0; }
-.tickets__routes-note { margin-top: 18px; font-size: 13.5px; color: var(--ink-mute); }
+
+.bp__routes li {
+  display: grid;
+  grid-template-columns: auto 1fr auto minmax(0, 1.15fr);
+  align-items: center; gap: 12px;
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(148, 205, 235, .1);
+}
+.bp__routes li:last-child { border-bottom: 0; }
+.bp__code {
+  font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: 16px;
+  letter-spacing: .02em; color: var(--foam);
+}
+/* Пунктир маршрута с самолётиком посередине. Дорожка разрезана на две
+   половины, а не подложена под иконку: подложка выдавала себя
+   прямоугольником другого оттенка поверх градиента карточки. */
+.bp__path {
+  display: flex; align-items: center; gap: 7px;
+  color: var(--cyan); min-width: 40px;
+}
+.bp__path::before,
+.bp__path::after {
+  content: ''; flex: 1; border-top: 1px dashed rgba(148, 205, 235, .35);
+}
+.bp__path svg { flex: none; }
+.bp__city { font-size: 14.5px; color: var(--ink-soft); text-align: right; }
+
+/* линия отрыва — ровно там же, где вырезы */
+.boardingpass__stub {
+  min-height: var(--stub);
+  display: flex; align-items: center;
+  padding: 0 clamp(22px, 3vw, 30px);
+  border-top: 1px dashed rgba(148, 205, 235, .32);
+}
+.boardingpass__stub p { font-size: 13px; line-height: 1.55; color: var(--ink-mute); }
+
+@media (max-width: 620px) {
+  .boardingpass { --stub: 120px; }
+  .bp__routes li { grid-template-columns: auto 1fr auto; gap: 10px; }
+  .bp__city { display: none; }
+}
 
 /* --- почему мы --- */
 .section--why { background: linear-gradient(180deg, var(--abyss), var(--deep-2) 55%, var(--abyss)); }
@@ -581,7 +636,67 @@ button { font: inherit; }
 }
 .cta__media { position: absolute; inset: 0; z-index: -1; }
 .cta__caustics { opacity: .75; }
-.cta__title { font-size: clamp(32px, 6vw, 68px); text-transform: uppercase; letter-spacing: -.04em; }
+/* ── иллюминатор ───────────────────────────────────────────────────
+   Форма взята у настоящего самолётного окна: это не круг, а вытянутый
+   овал со скруглением по обеим осям. Рамка двойная — внешний корпус и
+   внутренний тёмный кант, как между стёклами. */
+.porthole { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 18px; }
+.porthole__frame {
+  display: block;
+  width: clamp(210px, 24vw, 300px);
+  aspect-ratio: 3 / 4;
+  padding: 14px;
+  border-radius: 46% / 34%;
+  background: linear-gradient(160deg, rgba(226, 240, 249, .22), rgba(120, 150, 175, .1) 45%, rgba(226, 240, 249, .16));
+  box-shadow:
+    0 30px 70px -30px rgba(0, 0, 0, .85),
+    inset 0 1px 0 rgba(255, 255, 255, .28);
+}
+.porthole__glass {
+  position: relative; display: block; height: 100%;
+  border-radius: 44% / 32%;
+  overflow: hidden;
+  background: var(--abyss);
+  box-shadow: inset 0 0 0 3px rgba(6, 20, 33, .9), inset 0 10px 30px rgba(0, 0, 0, .55);
+}
+.porthole__glass img { width: 100%; height: 100%; object-fit: cover; }
+/* блик на стекле — то, что отличает окно от дырки в стене */
+.porthole__glare {
+  position: absolute; inset: 0;
+  background: linear-gradient(148deg, rgba(255, 255, 255, .2) 0%, rgba(255, 255, 255, .05) 22%, transparent 46%);
+}
+/* подпись в духе приборной панели — тот же язык, что у посадочного талона */
+.porthole__hud {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.porthole__hud span:first-child { font-family: 'Unbounded', sans-serif; color: var(--cyan); letter-spacing: .06em; }
+.porthole__hud-line { width: 46px; height: 1px; background: rgba(148, 205, 235, .35); }
+
+/* Финальный блок становится двухколоночным: окно слева, призыв справа.
+   Заодно уходит центрирование — единственное на всём сайте, который
+   везде выровнен по левому краю. */
+@media (min-width: 900px) {
+  .cta__inner {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(40px, 6vw, 84px);
+    text-align: left;
+  }
+  /* селекторы с .cta__inner — иначе их перебивают более поздние
+     правила выравнивания по центру, объявленные ниже по файлу */
+  .cta__inner .cta__lead { margin-left: 0; }
+  .cta__inner .cta__buttons { justify-content: flex-start; }
+  .cta__inner .cta__extra { text-align: left; }
+}
+@media (max-width: 899px) {
+  .porthole { margin-bottom: 34px; }
+  .cta__title { max-width: none; }
+}
+
+.cta__title { font-size: clamp(30px, 4vw, 54px); text-transform: uppercase; letter-spacing: -.035em; max-width: 15ch; }
 .cta__lead { margin: 22px auto 0; max-width: 46ch; color: var(--ink-soft); font-size: 17px; }
 .cta__phone {
   display: inline-block; margin: 36px 0 12px;
