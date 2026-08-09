@@ -659,32 +659,57 @@ button { font: inherit; }
    Форма взята у настоящего самолётного окна: это не круг, а вытянутый
    овал со скруглением по обеим осям. Рамка двойная — внешний корпус и
    внутренний тёмный кант, как между стёклами. */
-.porthole { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 18px; }
+.porthole { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+
+/* Панель обшивки вокруг окна. Без неё окно висит в пустоте; с ней
+   становится понятно, что оно врезано в стену салона. */
 .porthole__frame {
+  position: relative;
   display: block;
-  width: clamp(210px, 24vw, 300px);
-  aspect-ratio: 3 / 4;
-  padding: 14px;
-  border-radius: 46% / 34%;
-  background: linear-gradient(160deg, rgba(226, 240, 249, .22), rgba(120, 150, 175, .1) 45%, rgba(226, 240, 249, .16));
+  width: clamp(238px, 27vw, 340px);
+  aspect-ratio: 0.72;              /* пропорции настоящего окна, вытянутые */
+  padding: 16px;
+  border-radius: 40% / 28%;
+  background: linear-gradient(158deg, #dfe9f0 0%, #b9c7d2 38%, #93a4b2 62%, #cfdbe4 100%);
   box-shadow:
-    0 30px 70px -30px rgba(0, 0, 0, .85),
-    inset 0 1px 0 rgba(255, 255, 255, .28);
+    0 0 0 12px rgba(214, 227, 237, .10),   /* обшивка салона */
+    0 0 0 13px rgba(226, 240, 249, .16),
+    0 40px 90px -36px rgba(0, 0, 0, .9),
+    inset 0 2px 0 rgba(255, 255, 255, .55);
 }
+
+/* Стекло утоплено в раму: внутренняя тень рисует ту самую «шахту»
+   глубиной в несколько сантиметров, которая и выдаёт самолётное окно. */
 .porthole__glass {
   position: relative; display: block; height: 100%;
-  border-radius: 44% / 32%;
+  border-radius: 38% / 26%;
   overflow: hidden;
   background: var(--abyss);
-  box-shadow: inset 0 0 0 3px rgba(6, 20, 33, .9), inset 0 10px 30px rgba(0, 0, 0, .55);
+  box-shadow:
+    inset 0 0 0 2px rgba(60, 78, 92, .9),
+    inset 0 14px 26px -6px rgba(0, 0, 0, .75),
+    inset 0 -10px 22px -8px rgba(0, 0, 0, .6);
 }
 .porthole__glass img { width: 100%; height: 100%; object-fit: cover; }
-/* блик на стекле — то, что отличает окно от дырки в стене */
+
+/* Блик по стеклу — отличает окно от отверстия в стене. */
 .porthole__glare {
   position: absolute; inset: 0;
-  background: linear-gradient(148deg, rgba(255, 255, 255, .2) 0%, rgba(255, 255, 255, .05) 22%, transparent 46%);
+  background:
+    linear-gradient(152deg, rgba(255,255,255,.26) 0%, rgba(255,255,255,.07) 20%, transparent 44%),
+    linear-gradient(0deg, rgba(140, 190, 225, .12), transparent 40%);
 }
-/* подпись в духе приборной панели — тот же язык, что у посадочного талона */
+/* Дренажное отверстие внизу стекла. Мелочь, но именно она у всех
+   в памяти: без неё окно выглядит нарисованным. */
+.porthole__glare::after {
+  content: ''; position: absolute; left: 50%; bottom: 7%;
+  width: 7px; height: 7px; margin-left: -3.5px;
+  border-radius: 50%;
+  background: rgba(8, 18, 28, .78);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .9), 0 1px 0 rgba(255, 255, 255, .18);
+}
+
+/* Приборная подпись — тот же язык, что у посадочного талона. */
 .porthole__hud {
   display: flex; align-items: center; gap: 10px;
   font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
