@@ -149,6 +149,71 @@
     });
   }
 
+  /* ---------- бюджет: план и факт ----------
+     Считаем только то, что человек ввёл сам. Никаких «средних по рынку»:
+     сравнивать не с кем — ответы никуда не отправляются и нигде не копятся. */
+  var planRange = document.getElementById('planRange');
+  var factRange = document.getElementById('factRange');
+
+  if (planRange && factRange) {
+    var MAX = parseInt(planRange.max, 10);
+    var money = function (n) { return '$' + n.toLocaleString('ru-RU').replace(/,/g, ' '); };
+
+    var els = {
+      planOut: document.getElementById('planOut'),
+      factOut: document.getElementById('factOut'),
+      planBar: document.getElementById('planBar'),
+      factBar: document.getElementById('factBar'),
+      planNum: document.getElementById('planNum'),
+      factNum: document.getElementById('factNum'),
+      delta: document.getElementById('delta'),
+      tg: document.getElementById('budgetTg')
+    };
+
+    var renderBudget = function () {
+      var plan = +planRange.value;
+      var fact = +factRange.value;
+
+      els.planOut.textContent = els.planNum.textContent = money(plan);
+      els.factOut.textContent = els.factNum.textContent = money(fact);
+      els.planBar.style.width = (plan / MAX * 100) + '%';
+      els.factBar.style.width = (fact / MAX * 100) + '%';
+
+      var diff = fact - plan;
+      var pct = plan ? Math.round(Math.abs(diff) / plan * 100) : 0;
+      if (diff > 0) {
+        els.delta.innerHTML = 'Прошлая поездка вышла дороже плана на <b>' + money(diff) +
+          '</b> — это ' + pct + '% сверху.';
+      } else if (diff < 0) {
+        els.delta.innerHTML = 'В прошлый раз уложились дешевле плана на <b>' + money(-diff) + '</b>.';
+      } else {
+        els.delta.innerHTML = 'План и факт совпали — так бывает редко.';
+      }
+
+      els.tg.href = tgLink('Здравствуйте! Планирую около ' + money(plan) +
+        ' на человека, прошлая поездка обошлась примерно в ' + money(fact) +
+        '. Что можно подобрать?');
+
+      // бюджет из бегунка подставляем в форму подбора ниже по странице
+      var budgetSelect = document.getElementById('f-budget');
+      if (budgetSelect) {
+        var bands = [[600, 'до $600'], [1000, '$600–1000'], [1500, '$1000–1500'], [Infinity, 'от $1500']];
+        for (var i = 0; i < bands.length; i++) {
+          if (plan <= bands[i][0]) {
+            for (var j = 0; j < budgetSelect.options.length; j++) {
+              if (budgetSelect.options[j].text === bands[i][1]) budgetSelect.selectedIndex = j;
+            }
+            break;
+          }
+        }
+      }
+    };
+
+    planRange.addEventListener('input', renderBudget);
+    factRange.addEventListener('input', renderBudget);
+    renderBudget();
+  }
+
   /* ---------- форма подбора → Telegram ---------- */
   var form = document.getElementById('pickForm');
   var hint = document.getElementById('pickHint');
