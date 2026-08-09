@@ -134,6 +134,21 @@
     el.href = tgLink('Здравствуйте! Пишу с сайта V-travel. ' + tour + '. Подскажите, пожалуйста, детали.');
   });
 
+  /* ---------- вопросы: открыт только один ----------
+     Современные браузеры делают это сами по общему атрибуту name у
+     <details>. Здесь подстраховка для тех, где его ещё нет. */
+  if (!('name' in document.createElement('details'))) {
+    var faq = document.querySelectorAll('details[name="faq"]');
+    faq.forEach(function (d) {
+      d.addEventListener('toggle', function () {
+        if (!d.open) return;
+        faq.forEach(function (other) {
+          if (other !== d) other.open = false;
+        });
+      });
+    });
+  }
+
   /* ---------- форма подбора → Telegram ---------- */
   var form = document.getElementById('pickForm');
   var hint = document.getElementById('pickHint');

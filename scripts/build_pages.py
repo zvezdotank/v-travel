@@ -441,7 +441,7 @@ def build_page(d, all_dests):
 
     # ─ вопросы
     faq = "\n".join(
-        f'''        <details class="faq__item reveal">
+        f'''        <details class="faq__item reveal" name="faq">
           <summary>{e(q)}</summary>
           <p>{e(a)}</p>
         </details>''' for q, a in d["faq"])
