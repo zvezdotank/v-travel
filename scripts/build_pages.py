@@ -491,7 +491,7 @@ def build_page(d, all_dests):
 <meta property="og:site_name" content="V-travel">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:url" content="{url}">
-<meta property="og:title" content="{e(title)}">
+<meta property="og:title" content="Туры {e(to)} из Ташкента">
 <meta property="og:description" content="{e(desc)}">
 <meta property="og:image" content="{SITE}/assets/img/og-{d["slug"]}.jpg">
 <meta property="og:image:width" content="1200">
