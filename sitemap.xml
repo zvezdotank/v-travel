@@ -1,32 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://v-travel.uz/</loc>
-    <lastmod>2026-08-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://v-travel.uz/"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://v-travel.uz/uz/"/>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://v-travel.uz/uz/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://v-travel.uz/"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://v-travel.uz/uz/"/>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://v-travel.uz/turciya/</loc>
-    <lastmod>2026-08-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://v-travel.uz/turciya/"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://v-travel.uz/uz/turkiya/"/>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://v-travel.uz/uz/turkiya/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://v-travel.uz/turciya/"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://v-travel.uz/uz/turkiya/"/>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://v-travel.uz/egipet/</loc>
-    <lastmod>2026-08-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://v-travel.uz/egipet/"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://v-travel.uz/uz/misr/"/>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://v-travel.uz/uz/misr/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://v-travel.uz/egipet/"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://v-travel.uz/uz/misr/"/>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://v-travel.uz/tailand/</loc>
-    <lastmod>2026-08-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://v-travel.uz/tailand/"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://v-travel.uz/uz/tailand/"/>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://v-travel.uz/uz/tailand/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://v-travel.uz/tailand/"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://v-travel.uz/uz/tailand/"/>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://v-travel.uz/vietnam/</loc>
-    <lastmod>2026-08-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://v-travel.uz/vietnam/"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://v-travel.uz/uz/vetnam/"/>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://v-travel.uz/uz/vetnam/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://v-travel.uz/vietnam/"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://v-travel.uz/uz/vetnam/"/>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

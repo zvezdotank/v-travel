@@ -9,6 +9,65 @@
   var TG_USER = 'vtour_travel';
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* ---------- язык страницы ----------
+     Тексты заявок уходят человеку в Telegram, поэтому они должны быть на том
+     языке, на котором он читал сайт. Язык берём из <html lang>, который
+     проставляет сборщик, — отдельного переключателя в скрипте нет. */
+  var STR = {
+    ru: {
+      book: function (tour) {
+        return 'Здравствуйте! Пишу с сайта V-travel. ' + tour +
+               '. Подскажите, пожалуйста, детали.';
+      },
+      budget: function (sum) {
+        return 'Здравствуйте! Планирую около ' + sum + ' на человека. Что можно подобрать?';
+      },
+      from: function (sum) { return 'от ' + sum; },
+      nothingFits: 'В эту сумму пока не попадает ни одно направление — позвоните, поищем горящее',
+      dests: [
+        { name: 'Турция',  price: 520, url: '/turciya/' },
+        { name: 'Египет',  price: 590, url: '/egipet/' },
+        { name: 'Вьетнам', price: 720, url: '/vietnam/' },
+        { name: 'Таиланд', price: 790, url: '/tailand/' }
+      ],
+      bands: [[600, 'до $600'], [1000, '$600–1000'], [1500, '$1000–1500'], [Infinity, 'от $1500']],
+      anyDest: 'Ещё не решили',
+      anyDate: 'даты гибкие',
+      form: ['Здравствуйте! Заявка на подбор тура с сайта V-travel.', 'Направление: ',
+             'Даты: ', 'Длительность: ', 'Состав: ', 'Бюджет на человека: ', 'Жду варианты 🙂'],
+      sent: 'Открыли Telegram — заявка уже вписана, нажмите «Отправить».',
+      failed: 'Не удалось открыть Telegram. Напишите @vtour_travel или позвоните +998 90 317-22-88.'
+    },
+    uz: {
+      book: function (tour) {
+        return 'Assalomu alaykum! V-travel saytidan yozyapman. ' + tour +
+               '. Iltimos, tafsilotlarni ayting.';
+      },
+      budget: function (sum) {
+        return 'Assalomu alaykum! Kishi boshiga taxminan ' + sum +
+               ' rejalashtiryapman. Nima taklif qila olasiz?';
+      },
+      from: function (sum) { return sum + ' dan'; },
+      nothingFits: 'Bu summaga hozircha birorta yo‘nalish tushmayapti — qo‘ng‘iroq qiling, ' +
+                   'yonayotgan tur qidiramiz',
+      dests: [
+        { name: 'Turkiya', price: 520, url: '/uz/turkiya/' },
+        { name: 'Misr',    price: 590, url: '/uz/misr/' },
+        { name: 'Vyetnam', price: 720, url: '/uz/vetnam/' },
+        { name: 'Tailand', price: 790, url: '/uz/tailand/' }
+      ],
+      bands: [[600, '$600 gacha'], [1000, '$600–1000'], [1500, '$1000–1500'], [Infinity, '$1500 dan']],
+      anyDest: 'Hali hal qilmadik',
+      anyDate: 'sanalar moslashuvchan',
+      form: ['Assalomu alaykum! V-travel saytidan tur tanlash uchun ariza.', 'Yo‘nalish: ',
+             'Sanalar: ', 'Davomiyligi: ', 'Kimlar bilan: ', 'Kishi boshiga byudjet: ',
+             'Variantlarni kutaman 🙂'],
+      sent: 'Telegram ochildi — ariza yozilgan, «Yuborish» tugmasini bosing.',
+      failed: 'Telegramni ochib bo‘lmadi. @vtour_travel ga yozing yoki ' +
+              '+998 90 317-22-88 raqamiga qo‘ng‘iroq qiling.'
+    }
+  }[document.documentElement.lang === 'uz' ? 'uz' : 'ru'];
+
   /* ---------- Telegram deep-link ---------- */
   function tgLink(text) {
     return 'https://t.me/' + TG_USER + (text ? '?text=' + encodeURIComponent(text) : '');
@@ -131,7 +190,7 @@
     var tour = el.dataset.tour || '';
     el.setAttribute('target', '_blank');
     el.setAttribute('rel', 'noopener');
-    el.href = tgLink('Здравствуйте! Пишу с сайта V-travel. ' + tour + '. Подскажите, пожалуйста, детали.');
+    el.href = tgLink(STR.book(tour));
   });
 
   /* ---------- вопросы: открыт только один ----------
@@ -156,12 +215,7 @@
   var planRange = document.getElementById('planRange');
 
   if (planRange) {
-    var DESTS = [
-      { name: 'Турция',  price: 520, url: '/turciya/' },
-      { name: 'Египет',  price: 590, url: '/egipet/' },
-      { name: 'Вьетнам', price: 720, url: '/vietnam/' },
-      { name: 'Таиланд', price: 790, url: '/tailand/' }
-    ];
+    var DESTS = STR.dests;
     var money = function (n) { return '$' + n.toLocaleString('ru-RU').replace(/,/g, ' '); };
     var planOut = document.getElementById('planOut');
     var fitsList = document.getElementById('fitsList');
@@ -175,17 +229,16 @@
       fitsList.innerHTML = fits.length
         ? fits.map(function (d) {
             return '<li><a href="' + d.url + '">' + d.name +
-                   '<b>от ' + money(d.price) + '</b></a></li>';
+                   '<b>' + STR.from(money(d.price)) + '</b></a></li>';
           }).join('')
-        : '<li><span>В эту сумму пока не попадает ни одно направление — позвоните, поищем горящее</span></li>';
+        : '<li><span>' + STR.nothingFits + '</span></li>';
 
-      budgetTg.href = tgLink('Здравствуйте! Планирую около ' + money(plan) +
-        ' на человека. Что можно подобрать?');
+      budgetTg.href = tgLink(STR.budget(money(plan)));
 
       // подставляем бюджет в форму подбора ниже по странице
       var budgetSelect = document.getElementById('f-budget');
       if (budgetSelect) {
-        var bands = [[600, 'до $600'], [1000, '$600–1000'], [1500, '$1000–1500'], [Infinity, 'от $1500']];
+        var bands = STR.bands;
         for (var i = 0; i < bands.length; i++) {
           if (plan <= bands[i][0]) {
             for (var j = 0; j < budgetSelect.options.length; j++) {
@@ -209,27 +262,26 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
 
-      var dest = form.dest.value.trim() || 'Ещё не решили';
-      var date = form.date.value.trim() || 'даты гибкие';
+      var dest = form.dest.value.trim() || STR.anyDest;
+      var date = form.date.value.trim() || STR.anyDate;
+      var f = STR.form;
 
       var msg = [
-        'Здравствуйте! Заявка на подбор тура с сайта V-travel.',
+        f[0],
         '',
-        'Направление: ' + dest,
-        'Даты: ' + date,
-        'Длительность: ' + form.nights.value,
-        'Состав: ' + form.people.value,
-        'Бюджет на человека: ' + form.budget.value,
+        f[1] + dest,
+        f[2] + date,
+        f[3] + form.nights.value,
+        f[4] + form.people.value,
+        f[5] + form.budget.value,
         '',
-        'Жду варианты 🙂'
+        f[6]
       ].join('\n');
 
       var win = window.open(tgLink(msg), '_blank', 'noopener');
 
       if (hint) {
-        hint.textContent = win
-          ? 'Открыли Telegram — заявка уже вписана, нажмите «Отправить».'
-          : 'Не удалось открыть Telegram. Напишите @vtour_travel или позвоните +998 90 317-22-88.';
+        hint.textContent = win ? STR.sent : STR.failed;
         hint.style.color = win ? 'var(--cyan)' : 'var(--gold)';
       }
     });

@@ -1,11 +1,12 @@
 /* =====================================================
    Шрифты лежат у нас, а не на серверах Google.
 
-   Так браузер не делает двух лишних рукопожатий к чужим доменам и не
-   ждёт цепочку «наш html → css гугла → файл шрифта», прежде чем
-   показать текст. Каждый файл урезан до символов, которые реально
-   встречаются на сайте: русский алфавит, латиница, цифры и та
-   типографика, что стоит в макете.
+   Файл собирается скриптом — правки руками пропадут:
+
+       python3 scripts/build_fonts.py
+
+   Каждое начертание урезано до символов, которые реально встречаются на
+   сайте: кириллица, латиница с узбекскими oʻ и gʻ, цифры и типографика.
 
    Unbounded и Manrope — SIL Open Font License 1.1.
    ===================================================== */
@@ -17,6 +18,7 @@
   font-display: swap;
   src: url('/assets/fonts/unbounded-400.woff2') format('woff2');
 }
+
 @font-face {
   font-family: 'Unbounded';
   font-style: normal;
@@ -24,6 +26,7 @@
   font-display: swap;
   src: url('/assets/fonts/unbounded-800.woff2') format('woff2');
 }
+
 @font-face {
   font-family: 'Unbounded';
   font-style: normal;
@@ -31,6 +34,7 @@
   font-display: swap;
   src: url('/assets/fonts/unbounded-900.woff2') format('woff2');
 }
+
 @font-face {
   font-family: 'Manrope';
   font-style: normal;
@@ -38,6 +42,7 @@
   font-display: swap;
   src: url('/assets/fonts/manrope-400.woff2') format('woff2');
 }
+
 @font-face {
   font-family: 'Manrope';
   font-style: normal;
@@ -45,6 +50,7 @@
   font-display: swap;
   src: url('/assets/fonts/manrope-600.woff2') format('woff2');
 }
+
 @font-face {
   font-family: 'Manrope';
   font-style: normal;
@@ -52,6 +58,7 @@
   font-display: swap;
   src: url('/assets/fonts/manrope-700.woff2') format('woff2');
 }
+
 @font-face {
   font-family: 'Manrope';
   font-style: normal;

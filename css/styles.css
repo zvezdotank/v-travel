@@ -145,7 +145,7 @@ button { font: inherit; }
 .logo__text span { font-weight: 400; color: var(--ink-soft); }
 .logo--sm .logo__text { font-size: 17px; }
 
-.nav { margin-left: auto; display: flex; align-items: center; gap: 18px; }
+.nav { margin-left: auto; display: flex; align-items: center; gap: 16px; }
 .nav__link {
   position: relative; font-size: 14.5px; font-weight: 600; color: var(--ink-soft);
   white-space: nowrap;
@@ -170,6 +170,22 @@ button { font: inherit; }
 }
 .header__phone:hover { border-color: rgba(56, 208, 255, .55); background: rgba(56, 208, 255, .1); }
 .header__phone svg { color: var(--cyan); }
+
+/* Переключатель языков. Русский и узбекский здесь равноправны, поэтому не
+   выпадающий список, а две видимые кнопки: человек сразу видит, что вторая
+   версия есть. Текущий язык — не ссылка, а состояние. */
+.langswitch {
+  display: inline-flex; align-items: center; flex: none; gap: 2px; padding: 2px;
+  border: 1px solid var(--card-line); border-radius: 999px;
+  background: rgba(255, 255, 255, .04);
+}
+.langswitch__item {
+  padding: 5px 9px; border-radius: 999px; line-height: 1;
+  font-size: 11.5px; font-weight: 700; letter-spacing: .04em;
+  color: var(--ink-soft); transition: color .2s, background .2s;
+}
+.langswitch__item.is-active { color: var(--abyss); background: var(--cyan); }
+a.langswitch__item:hover { color: var(--ink); background: rgba(56, 208, 255, .14); }
 
 .burger { display: none; width: 42px; height: 42px; border: 1px solid var(--card-line); border-radius: 12px; background: rgba(255,255,255,.04); position: relative; cursor: pointer; }
 .burger span { position: absolute; left: 11px; width: 20px; height: 2px; background: var(--ink); border-radius: 2px; transition: transform .3s var(--ease), opacity .2s; }
@@ -916,7 +932,15 @@ button { font: inherit; }
   .dests { grid-template-columns: repeat(2, 1fr); }
   .dest, .dest--wide { grid-column: span 1; }
   .pick, .tickets { grid-template-columns: 1fr; }
+}
 
+/* Шапка перестраивается раньше содержимого и по своей причине: шести
+   пунктам меню, номеру и переключателю языков нужно около 1090px, а вся
+   колонка .shell — 1100px. Запас считается по узбекским подписям, они
+   длиннее русских. Кнопки Telegram здесь нет намеренно: вместе с
+   остальным она в эту ширину не влезала ни при каком экране, а сам
+   Telegram и так есть плавающей кнопкой, в меню и в каждой секции. */
+@media (max-width: 1179px) {
   .nav {
     position: fixed; inset: 74px 0 auto; margin: 0;
     flex-direction: column; align-items: stretch; gap: 0;
@@ -932,7 +956,6 @@ button { font: inherit; }
   .nav__link::after { display: none; }
   .nav__mobile-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
   .burger { display: block; }
-  .header__actions .btn--tg { display: none; }
   .header__inner { gap: 12px; }
 }
 

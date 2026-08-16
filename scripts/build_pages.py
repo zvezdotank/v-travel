@@ -16,8 +16,12 @@ from pathlib import Path
 import html
 import json
 import re
+import sys
 from datetime import date
 from urllib.parse import quote
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from lang_uz import SLUGS          # noqa: E402   адреса узбекских двойников
 
 ROOT = Path(__file__).resolve().parent.parent
 SITE = "https://v-travel.uz"
@@ -289,7 +293,7 @@ ICON_TG = ('<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" 
            '6.4c.4-.4-.1-.6-.6-.2L7.2 12.7l-4.9-1.5c-1.1-.3-1.1-1 .2-1.5l19.1-7.4c.9-.3 1.7.2 1.4 2z"/></svg>')
 
 
-def header_html():
+def header_html(uz_href):
     return f'''<header class="header" id="header">
   <div class="shell header__inner">
     <a href="/" class="logo" aria-label="V-travel, на главную">
@@ -313,13 +317,13 @@ def header_html():
     </nav>
 
     <div class="header__actions">
+      <div class="langswitch" role="group" aria-label="Язык">
+        <span class="langswitch__item is-active" aria-current="true">RU</span>
+        <a class="langswitch__item" href="{uz_href}" hreflang="uz" lang="uz">UZ</a>
+      </div>
       <a href="tel:{PHONE}" class="header__phone" data-goal="call">
         <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.1-8.7A2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .3 2 .7 2.9a2 2 0 01-.4 2.1L8 10.1a16 16 0 006 6l1.4-1.4a2 2 0 012.1-.4c.9.4 1.9.6 2.9.7a2 2 0 011.7 2"/></svg>
         <span>{PHONE_HUMAN}</span>
-      </a>
-      <a href="https://t.me/{TG}" target="_blank" rel="noopener" class="btn btn--tg btn--sm" data-goal="telegram">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M21.9 4.3L18.6 20c-.2 1.1-.9 1.4-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1L18 6.4c.4-.4-.1-.6-.6-.2L7.2 12.7l-4.9-1.5c-1.1-.3-1.1-1 .2-1.5l19.1-7.4c.9-.3 1.7.2 1.4 2z"/></svg>
-        Telegram
       </a>
       <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="nav">
         <span></span><span></span><span></span>
@@ -493,7 +497,7 @@ def build_page(d, all_dests):
 <meta property="og:url" content="{url}">
 <meta property="og:title" content="Туры {e(to)} из Ташкента">
 <meta property="og:description" content="{e(desc)}">
-<meta property="og:image" content="{SITE}/assets/img/og-{d["slug"]}.jpg">
+<meta property="og:image" content="{SITE}/assets/img/og-{d["slug"]}-v2.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="{e(title)}">
@@ -515,7 +519,7 @@ def build_page(d, all_dests):
 
 <a class="skip-link" href="#main">К основному содержимому</a>
 
-{header_html()}
+{header_html("%s/uz/%s/" % (SITE, SLUGS[d["slug"]]))}
 
 <main id="main">
 

@@ -26,17 +26,18 @@ IMG = ROOT / "assets" / "img"
 FONTS = Path("/private/tmp/claude-501/-Users-zvezdotank-Claude"
              "/21b5c055-979b-4120-a627-f8cda6873879/scratchpad/fonts")
 
+VER = "-v2"   # менять при обновлении обложек: сбрасывает кэш мессенджеров
 W, H = 1200, 630
 PHONE = "+998 90 317-22-88"
 
 # кадр → имя обложки. Для главной берём вид с крылом: в ленте он за долю
 # секунды читается как «перелёт», а абстрактная вода не говорит ничего.
 JOBS = [
-    ("porthole-source", "og-cover.jpg"),
-    ("dest-turkey.webp", "og-turciya.jpg"),
-    ("dest-egypt.webp", "og-egipet.jpg"),
-    ("dest-thailand.webp", "og-tailand.jpg"),
-    ("dest-vietnam.webp", "og-vietnam.jpg"),
+    ("porthole-source", "og-cover%s.jpg" % VER),
+    ("dest-turkey.webp", "og-turciya%s.jpg" % VER),
+    ("dest-egypt.webp", "og-egipet%s.jpg" % VER),
+    ("dest-thailand.webp", "og-tailand%s.jpg" % VER),
+    ("dest-vietnam.webp", "og-vietnam%s.jpg" % VER),
 ]
 WING_SRC = Path.home() / "Downloads" / "Gemini_Generated_Image_8wmj2j8wmj2j8wmj.png"
 
