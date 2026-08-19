@@ -25,7 +25,8 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23061c2e'/%3E%3Cpath d='M16 20l16 26 16-26' fill='none' stroke='%2338d0ff' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preload" href="/assets/fonts/unbounded-900.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/manrope-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/assets/img/hero-water.webp" as="image" fetchpriority="high">
+<link rel="preload" href="/assets/img/hero-water.webp" as="image"
+      imagesrcset="/assets/img/hero-water-1100.webp 1100w, /assets/img/hero-water.webp 2000w" imagesizes="100vw" fetchpriority="high">
 <link rel="stylesheet" href="/css/fonts.css">
 <link rel="stylesheet" href="/css/styles.css">
 <script>document.documentElement.classList.add('js');</script>
@@ -69,6 +70,62 @@
   "sameAs": [
     "https://t.me/vtour_travel",
     "https://t.me/vtour_deals"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Что такое горящий тур и почему он дешевле обычного?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Туроператор выкупает места в самолёте и номера в отеле заранее. Если ближе к вылету часть осталась непроданной, её отдают со скидкой: везти пустое кресло дороже, чем продать его вполцены. Отель и рейс при этом те же самые, что и по полной цене."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "За сколько дней до вылета появляются горящие туры?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Обычно за 3–14 дней. Иногда предложение живёт несколько часов — как только места выкупают, цена возвращается к обычной. Поэтому мы проверяем наличие в момент обращения, а не показываем вчерашние цены."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Горящий тур — это обязательно плохой отель?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Скидка зависит от того, что осталось непроданным, а не от качества: она бывает и на пятизвёздочные отели первой линии. Ограничен не уровень, а выбор — берёте из того, что есть на эти даты."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли выбрать конкретный отель и конкретные даты?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "В горящем туре — только из оставшегося. Если даты отпуска жёсткие или нужен определённый отель, выгоднее бронировать заранее: это всё равно дешевле, чем покупать тот же тур за неделю до вылета по обычной цене. Скажите, что важнее — цена или даты, и мы будем искать под это."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Успею ли я оформить документы, если вылет через неделю?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Чаще всего да. Правила въезда меняются, поэтому мы проверяем их на вашу дату вылета ещё до брони и сразу говорим, какие документы понадобятся и сколько времени займёт оформление."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как узнать о горящем туре первым?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Предложения появляются без предупреждения, поэтому лучший способ — сказать нам направление и бюджет заранее: как только появится подходящее, мы напишем. Ещё есть канал, куда они попадают по мере поступления."
+      }
+    }
   ]
 }
 </script>
@@ -121,18 +178,19 @@
   <!-- ============ HERO ============ -->
   <section class="hero" id="top">
     <div class="hero__media" aria-hidden="true">
-      <img src="/assets/img/hero-water.webp" alt="" width="2000" height="1269" fetchpriority="high">
+      <img src="/assets/img/hero-water.webp"
+           srcset="/assets/img/hero-water-1100.webp 1100w, /assets/img/hero-water.webp 2000w" sizes="100vw"
+           alt="" width="2000" height="1269" fetchpriority="high">
       <div class="hero__caustics"></div>
       <div class="hero__scrim"></div>
     </div>
 
     <div class="shell hero__inner">
-      <p class="eyebrow reveal">
-        <span class="pulse" aria-hidden="true"></span>
-        Турагентство в Ташкенте · На связи прямо сейчас
-      </p>
-
-      <h1 class="hero__title reveal" style="--d:.05s">
+      <h1 class="hero__title reveal">
+        <span class="eyebrow">
+          <span class="pulse" aria-hidden="true"></span>
+          Горящие туры из Ташкента
+        </span>
         Море ближе,<br>
         <span class="hero__title-out">чем кажется</span>
       </h1>
@@ -648,6 +706,43 @@
     </div>
   </section>
 
+  <!-- ============ FAQ ============ -->
+  <section class="section section--faq" id="faq">
+    <div class="shell">
+      <header class="sec-head reveal">
+        <p class="sec-kicker">Вопросы</p>
+        <h2 class="sec-title">О чём спрашивают<br>про горящие туры</h2>
+      </header>
+
+      <div class="faq">
+        <details class="faq__item reveal" name="faq">
+          <summary>Что такое горящий тур и почему он дешевле обычного?</summary>
+          <p>Туроператор выкупает места в самолёте и номера в отеле заранее. Если ближе к вылету часть осталась непроданной, её отдают со скидкой: везти пустое кресло дороже, чем продать его вполцены. Отель и рейс при этом те же самые, что и по полной цене.</p>
+        </details>
+        <details class="faq__item reveal" name="faq">
+          <summary>За сколько дней до вылета появляются горящие туры?</summary>
+          <p>Обычно за 3–14 дней. Иногда предложение живёт несколько часов — как только места выкупают, цена возвращается к обычной. Поэтому мы проверяем наличие в момент обращения, а не показываем вчерашние цены.</p>
+        </details>
+        <details class="faq__item reveal" name="faq">
+          <summary>Горящий тур — это обязательно плохой отель?</summary>
+          <p>Нет. Скидка зависит от того, что осталось непроданным, а не от качества: она бывает и на пятизвёздочные отели первой линии. Ограничен не уровень, а выбор — берёте из того, что есть на эти даты.</p>
+        </details>
+        <details class="faq__item reveal" name="faq">
+          <summary>Можно ли выбрать конкретный отель и конкретные даты?</summary>
+          <p>В горящем туре — только из оставшегося. Если даты отпуска жёсткие или нужен определённый отель, выгоднее бронировать заранее: это всё равно дешевле, чем покупать тот же тур за неделю до вылета по обычной цене. Скажите, что важнее — цена или даты, и мы будем искать под это.</p>
+        </details>
+        <details class="faq__item reveal" name="faq">
+          <summary>Успею ли я оформить документы, если вылет через неделю?</summary>
+          <p>Чаще всего да. Правила въезда меняются, поэтому мы проверяем их на вашу дату вылета ещё до брони и сразу говорим, какие документы понадобятся и сколько времени займёт оформление.</p>
+        </details>
+        <details class="faq__item reveal" name="faq">
+          <summary>Как узнать о горящем туре первым?</summary>
+          <p>Предложения появляются без предупреждения, поэтому лучший способ — сказать нам направление и бюджет заранее: как только появится подходящее, мы напишем. Ещё есть канал, куда они попадают по мере поступления.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ FINAL CTA ============ -->
   <section class="cta" id="contacts">
     <div class="cta__media" aria-hidden="true"><div class="cta__caustics"></div></div>
@@ -709,6 +804,7 @@
       <a href="#how">Как работаем</a>
       <a href="#budget">Бюджет поездки</a>
       <a href="#reviews">Отзывы</a>
+      <a href="#faq">Вопросы</a>
       <a href="#pick">Подбор тура</a>
     </nav>
 

@@ -55,6 +55,8 @@ REGEXES = [
      'Aynan qayerga<br>uchish kerak'),
     (r'О чём спрашивают<br>\s*перед поездкой',
      'Sayohatdan oldin<br>nima so‘rashadi'),
+    (r'О чём спрашивают<br>\s*про горящие туры',
+     'Yonayotgan turlar haqida<br>nima so‘rashadi'),
 
     # заголовок страницы направления: «Туры в Турцию / из Ташкента»
     (r'<h1>Туры в Турцию<br>\s*из Ташкента</h1>', '<h1>Toshkentdan<br>Turkiyaga turlar</h1>'),
@@ -362,6 +364,64 @@ PHRASES = {
 'Египет, июль': 'Misr, iyul',
 'Турция, июнь': 'Turkiya, iyun',
 'ОАЭ, май': 'BAA, may',
+
+# ─── вопросы на главной ───────────────────────────────────────────────
+'Что такое горящий тур и почему он дешевле обычного?':
+    'Yonayotgan tur nima va nega u oddiysidan arzon?',
+'Туроператор выкупает места в самолёте и номера в отеле заранее. Если ближе к вылету '
+'часть осталась непроданной, её отдают со скидкой: везти пустое кресло дороже, чем '
+'продать его вполцены. Отель и рейс при этом те же самые, что и по полной цене.':
+    'Turoperator samolyotdagi o‘rinlar va mehmonxona xonalarini oldindan sotib oladi. '
+    'Uchishga yaqin ularning bir qismi sotilmay qolsa, chegirma bilan beriladi: bo‘sh '
+    'o‘rindiqni olib uchish uni yarim narxda sotgandan qimmatroq. Mehmonxona ham, reys '
+    'ham to‘liq narxdagi bilan bir xil bo‘ladi.',
+
+'За сколько дней до вылета появляются горящие туры?':
+    'Yonayotgan turlar uchishdan necha kun oldin paydo bo‘ladi?',
+'Обычно за 3–14 дней. Иногда предложение живёт несколько часов — как только места '
+'выкупают, цена возвращается к обычной. Поэтому мы проверяем наличие в момент '
+'обращения, а не показываем вчерашние цены.':
+    'Odatda 3–14 kun oldin. Ba’zan taklif bir necha soat yashaydi — o‘rinlar sotilishi '
+    'bilan narx odatdagiga qaytadi. Shuning uchun biz kechagi narxlarni ko‘rsatmay, siz '
+    'murojaat qilgan paytda mavjudligini tekshiramiz.',
+
+'Горящий тур — это обязательно плохой отель?':
+    'Yonayotgan tur — bu albatta yomon mehmonxonami?',
+'Нет. Скидка зависит от того, что осталось непроданным, а не от качества: она бывает и '
+'на пятизвёздочные отели первой линии. Ограничен не уровень, а выбор — берёте из того, '
+'что есть на эти даты.':
+    'Yo‘q. Chegirma sifatga emas, nima sotilmay qolganiga bog‘liq: u birinchi qatordagi '
+    'besh yulduzli mehmonxonalarda ham bo‘ladi. Cheklangan narsa daraja emas, tanlov — '
+    'shu sanalarda nima bor bo‘lsa, shundan olasiz.',
+
+'Можно ли выбрать конкретный отель и конкретные даты?':
+    'Aniq mehmonxona va aniq sanalarni tanlash mumkinmi?',
+'В горящем туре — только из оставшегося. Если даты отпуска жёсткие или нужен '
+'определённый отель, выгоднее бронировать заранее: это всё равно дешевле, чем покупать '
+'тот же тур за неделю до вылета по обычной цене. Скажите, что важнее — цена или '
+'даты, и мы будем искать под это.':
+    'Yonayotgan turda — faqat qolganidan. Ta’til sanalari qat’iy bo‘lsa yoki muayyan '
+    'mehmonxona kerak bo‘lsa, oldindan bron qilgan foydaliroq: bu baribir o‘sha turni '
+    'uchishdan bir hafta oldin oddiy narxda olishdan arzon. Nima muhimroq — narxmi yoki '
+    'sanalarmi, ayting, shunga qarab qidiramiz.',
+
+'Успею ли я оформить документы, если вылет через неделю?':
+    'Uchish bir haftadan keyin bo‘lsa, hujjatlarni rasmiylashtirishga ulguramanmi?',
+'Чаще всего да. Правила въезда меняются, поэтому мы проверяем их на вашу дату вылета '
+'ещё до брони и сразу говорим, какие документы понадобятся и сколько времени займёт '
+'оформление.':
+    'Ko‘pincha ha. Kirish qoidalari o‘zgarib turadi, shuning uchun biz ularni bron '
+    'qilishdan oldin sizning uchish sanangizga tekshiramiz va qanday hujjatlar '
+    'kerakligini hamda rasmiylashtirish qancha vaqt olishini darrov aytamiz.',
+
+'Как узнать о горящем туре первым?':
+    'Yonayotgan tur haqida birinchi bo‘lib qanday bilish mumkin?',
+'Предложения появляются без предупреждения, поэтому лучший способ — сказать нам '
+'направление и бюджет заранее: как только появится подходящее, мы напишем. Ещё есть '
+'канал, куда они попадают по мере поступления.':
+    'Takliflar ogohlantirishsiz paydo bo‘ladi, shuning uchun eng yaxshi yo‘l — yo‘nalish '
+    'va byudjetingizni bizga oldindan aytish: mos variant chiqishi bilan yozamiz. Bundan '
+    'tashqari, ular tushib turadigan kanal ham bor.',
 
 # ─── финальный экран ──────────────────────────────────────────────────
 'Позвоните — и через 15 минут у вас будут варианты':

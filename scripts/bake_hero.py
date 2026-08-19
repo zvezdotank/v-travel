@@ -23,7 +23,9 @@ from PIL import Image
 
 SRC = Path("assets/img/new/Gemini_Generated_Image_5321jh5321jh5321.png")
 OUT = Path("assets/img/hero-water.webp")
+OUT_SMALL = Path("assets/img/hero-water-1100.webp")
 WIDTH = 2000
+SMALL = 1100        # вариант для телефонов
 CROP_RIGHT = 0.12          # тот же срез маркера Gemini, что и при первой обработке
 
 SATURATE, CONTRAST, BRIGHTNESS = 1.45, 1.10, 0.92
@@ -86,9 +88,16 @@ def main():
     g = gradient_layer(h, w)
     a = a * (1 - OPACITY) + blend_color(a, g) * OPACITY
 
-    Image.fromarray((np.clip(a, 0, 1) * 255).astype("uint8")).save(
-        OUT, "WEBP", quality=82, method=6)
+    baked = Image.fromarray((np.clip(a, 0, 1) * 255).astype("uint8"))
+    baked.save(OUT, "WEBP", quality=82, method=6)
     print("%s  %dx%d  %d КБ" % (OUT, w, h, OUT.stat().st_size / 1024))
+
+    # Телефону версия в 2000px не нужна, а картинка эта — LCP-элемент: именно
+    # по ней измеряется, за сколько страница «показалась». Отдаём вариант под
+    # мелкий экран, браузер выберет сам по srcset.
+    small = baked.resize((SMALL, round(h * SMALL / w)), Image.LANCZOS)
+    small.save(OUT_SMALL, "WEBP", quality=80, method=6)
+    print("%s  %dx%d  %d КБ" % (OUT_SMALL, *small.size, OUT_SMALL.stat().st_size / 1024))
 
 
 if __name__ == "__main__":

@@ -25,7 +25,8 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23061c2e'/%3E%3Cpath d='M16 20l16 26 16-26' fill='none' stroke='%2338d0ff' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preload" href="/assets/fonts/unbounded-900.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/manrope-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/assets/img/hero-water.webp" as="image" fetchpriority="high">
+<link rel="preload" href="/assets/img/hero-water.webp" as="image"
+      imagesrcset="/assets/img/hero-water-1100.webp 1100w, /assets/img/hero-water.webp 2000w" imagesizes="100vw" fetchpriority="high">
 <link rel="stylesheet" href="/css/fonts.css">
 <link rel="stylesheet" href="/css/styles.css">
 <script>document.documentElement.classList.add('js');</script>
@@ -69,6 +70,62 @@
   "sameAs": [
     "https://t.me/vtour_travel",
     "https://t.me/vtour_deals"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Yonayotgan tur nima va nega u oddiysidan arzon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Turoperator samolyotdagi o‘rinlar va mehmonxona xonalarini oldindan sotib oladi. Uchishga yaqin ularning bir qismi sotilmay qolsa, chegirma bilan beriladi: bo‘sh o‘rindiqni olib uchish uni yarim narxda sotgandan qimmatroq. Mehmonxona ham, reys ham to‘liq narxdagi bilan bir xil bo‘ladi."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Yonayotgan turlar uchishdan necha kun oldin paydo bo‘ladi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Odatda 3–14 kun oldin. Ba’zan taklif bir necha soat yashaydi — o‘rinlar sotilishi bilan narx odatdagiga qaytadi. Shuning uchun biz kechagi narxlarni ko‘rsatmay, siz murojaat qilgan paytda mavjudligini tekshiramiz."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Yonayotgan tur — bu albatta yomon mehmonxonami?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yo‘q. Chegirma sifatga emas, nima sotilmay qolganiga bog‘liq: u birinchi qatordagi besh yulduzli mehmonxonalarda ham bo‘ladi. Cheklangan narsa daraja emas, tanlov — shu sanalarda nima bor bo‘lsa, shundan olasiz."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Aniq mehmonxona va aniq sanalarni tanlash mumkinmi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yonayotgan turda — faqat qolganidan. Ta’til sanalari qat’iy bo‘lsa yoki muayyan mehmonxona kerak bo‘lsa, oldindan bron qilgan foydaliroq: bu baribir o‘sha turni uchishdan bir hafta oldin oddiy narxda olishdan arzon. Nima muhimroq — narxmi yoki sanalarmi, ayting, shunga qarab qidiramiz."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Uchish bir haftadan keyin bo‘lsa, hujjatlarni rasmiylashtirishga ulguramanmi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ko‘pincha ha. Kirish qoidalari o‘zgarib turadi, shuning uchun biz ularni bron qilishdan oldin sizning uchish sanangizga tekshiramiz va qanday hujjatlar kerakligini hamda rasmiylashtirish qancha vaqt olishini darrov aytamiz."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Yonayotgan tur haqida birinchi bo‘lib qanday bilish mumkin?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Takliflar ogohlantirishsiz paydo bo‘ladi, shuning uchun eng yaxshi yo‘l — yo‘nalish va byudjetingizni bizga oldindan aytish: mos variant chiqishi bilan yozamiz. Bundan tashqari, ular tushib turadigan kanal ham bor."
+      }
+    }
   ]
 }
 </script>
@@ -121,18 +178,19 @@
   <!-- ============ HERO ============ -->
   <section class="hero" id="top">
     <div class="hero__media" aria-hidden="true">
-      <img src="/assets/img/hero-water.webp" alt="" width="2000" height="1269" fetchpriority="high">
+      <img src="/assets/img/hero-water.webp"
+           srcset="/assets/img/hero-water-1100.webp 1100w, /assets/img/hero-water.webp 2000w" sizes="100vw"
+           alt="" width="2000" height="1269" fetchpriority="high">
       <div class="hero__caustics"></div>
       <div class="hero__scrim"></div>
     </div>
 
     <div class="shell hero__inner">
-      <p class="eyebrow reveal">
-        <span class="pulse" aria-hidden="true"></span>
-        Toshkentdagi turagentlik · Hozir aloqadamiz
-      </p>
-
-      <h1 class="hero__title reveal" style="--d:.05s">
+      <h1 class="hero__title reveal">
+        <span class="eyebrow">
+          <span class="pulse" aria-hidden="true"></span>
+          Toshkentdan yonayotgan turlar
+        </span>
         Dengizga<br>
         <span class="hero__title-out">bir qadam</span>
       </h1>
@@ -643,6 +701,43 @@
     </div>
   </section>
 
+  <!-- ============ FAQ ============ -->
+  <section class="section section--faq" id="faq">
+    <div class="shell">
+      <header class="sec-head reveal">
+        <p class="sec-kicker">Savollar</p>
+        <h2 class="sec-title">Yonayotgan turlar haqida<br>nima so‘rashadi</h2>
+      </header>
+
+      <div class="faq">
+        <details class="faq__item reveal" name="faq">
+          <summary>Yonayotgan tur nima va nega u oddiysidan arzon?</summary>
+          <p>Turoperator samolyotdagi o‘rinlar va mehmonxona xonalarini oldindan sotib oladi. Uchishga yaqin ularning bir qismi sotilmay qolsa, chegirma bilan beriladi: bo‘sh o‘rindiqni olib uchish uni yarim narxda sotgandan qimmatroq. Mehmonxona ham, reys ham to‘liq narxdagi bilan bir xil bo‘ladi.</p>
+        </details>
+        <details class="faq__item reveal" name="faq">
+          <summary>Yonayotgan turlar uchishdan necha kun oldin paydo bo‘ladi?</summary>
+          <p>Odatda 3–14 kun oldin. Ba’zan taklif bir necha soat yashaydi — o‘rinlar sotilishi bilan narx odatdagiga qaytadi. Shuning uchun biz kechagi narxlarni ko‘rsatmay, siz murojaat qilgan paytda mavjudligini tekshiramiz.</p>
+        </details>
+        <details class="faq__item reveal" name="faq">
+          <summary>Yonayotgan tur — bu albatta yomon mehmonxonami?</summary>
+          <p>Yo‘q. Chegirma sifatga emas, nima sotilmay qolganiga bog‘liq: u birinchi qatordagi besh yulduzli mehmonxonalarda ham bo‘ladi. Cheklangan narsa daraja emas, tanlov — shu sanalarda nima bor bo‘lsa, shundan olasiz.</p>
+        </details>
+        <details class="faq__item reveal" name="faq">
+          <summary>Aniq mehmonxona va aniq sanalarni tanlash mumkinmi?</summary>
+          <p>Yonayotgan turda — faqat qolganidan. Ta’til sanalari qat’iy bo‘lsa yoki muayyan mehmonxona kerak bo‘lsa, oldindan bron qilgan foydaliroq: bu baribir o‘sha turni uchishdan bir hafta oldin oddiy narxda olishdan arzon. Nima muhimroq — narxmi yoki sanalarmi, ayting, shunga qarab qidiramiz.</p>
+        </details>
+        <details class="faq__item reveal" name="faq">
+          <summary>Uchish bir haftadan keyin bo‘lsa, hujjatlarni rasmiylashtirishga ulguramanmi?</summary>
+          <p>Ko‘pincha ha. Kirish qoidalari o‘zgarib turadi, shuning uchun biz ularni bron qilishdan oldin sizning uchish sanangizga tekshiramiz va qanday hujjatlar kerakligini hamda rasmiylashtirish qancha vaqt olishini darrov aytamiz.</p>
+        </details>
+        <details class="faq__item reveal" name="faq">
+          <summary>Yonayotgan tur haqida birinchi bo‘lib qanday bilish mumkin?</summary>
+          <p>Takliflar ogohlantirishsiz paydo bo‘ladi, shuning uchun eng yaxshi yo‘l — yo‘nalish va byudjetingizni bizga oldindan aytish: mos variant chiqishi bilan yozamiz. Bundan tashqari, ular tushib turadigan kanal ham bor.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ FINAL CTA ============ -->
   <section class="cta" id="contacts">
     <div class="cta__media" aria-hidden="true"><div class="cta__caustics"></div></div>
@@ -704,6 +799,7 @@
       <a href="#how">Qanday ishlaymiz</a>
       <a href="#budget">Sayohat byudjeti</a>
       <a href="#reviews">Sharhlar</a>
+      <a href="#faq">Savollar</a>
       <a href="#pick">Tur tanlash</a>
     </nav>
 
